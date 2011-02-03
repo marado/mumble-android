@@ -6,10 +6,10 @@ package net.sf.mumble;
 public final class MumbleProto {
   private MumbleProto() {}
   public static void registerAllExtensions(
-      com.google.protobuf.ExtensionRegistryLite registry) {
+      com.google.protobuf.ExtensionRegistry registry) {
   }
   public static final class Version extends
-      com.google.protobuf.GeneratedMessageLite {
+      com.google.protobuf.GeneratedMessage {
     // Use Version.newBuilder() to construct.
     private Version() {
       initFields();
@@ -23,6 +23,16 @@ public final class MumbleProto {
     
     public Version getDefaultInstanceForType() {
       return defaultInstance;
+    }
+    
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return net.sf.mumble.MumbleProto.internal_static_MumbleProto_Version_descriptor;
+    }
+    
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return net.sf.mumble.MumbleProto.internal_static_MumbleProto_Version_fieldAccessorTable;
     }
     
     // optional uint32 version = 1;
@@ -74,6 +84,7 @@ public final class MumbleProto {
       if (hasOsVersion()) {
         output.writeString(4, getOsVersion());
       }
+      getUnknownFields().writeTo(output);
     }
     
     private int memoizedSerializedSize = -1;
@@ -98,6 +109,7 @@ public final class MumbleProto {
         size += com.google.protobuf.CodedOutputStream
           .computeStringSize(4, getOsVersion());
       }
+      size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
       return size;
     }
@@ -177,8 +189,7 @@ public final class MumbleProto {
     public Builder toBuilder() { return newBuilder(this); }
     
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessageLite.Builder<
-          net.sf.mumble.MumbleProto.Version, Builder> {
+        com.google.protobuf.GeneratedMessage.Builder<Builder> {
       private net.sf.mumble.MumbleProto.Version result;
       
       // Construct using net.sf.mumble.MumbleProto.Version.newBuilder()
@@ -205,6 +216,11 @@ public final class MumbleProto {
       
       public Builder clone() {
         return create().mergeFrom(result);
+      }
+      
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return net.sf.mumble.MumbleProto.Version.getDescriptor();
       }
       
       public net.sf.mumble.MumbleProto.Version getDefaultInstanceForType() {
@@ -240,6 +256,15 @@ public final class MumbleProto {
         return returnMe;
       }
       
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof net.sf.mumble.MumbleProto.Version) {
+          return mergeFrom((net.sf.mumble.MumbleProto.Version)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+      
       public Builder mergeFrom(net.sf.mumble.MumbleProto.Version other) {
         if (other == net.sf.mumble.MumbleProto.Version.getDefaultInstance()) return this;
         if (other.hasVersion()) {
@@ -254,6 +279,7 @@ public final class MumbleProto {
         if (other.hasOsVersion()) {
           setOsVersion(other.getOsVersion());
         }
+        this.mergeUnknownFields(other.getUnknownFields());
         return this;
       }
       
@@ -261,13 +287,19 @@ public final class MumbleProto {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
+        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder(
+            this.getUnknownFields());
         while (true) {
           int tag = input.readTag();
           switch (tag) {
             case 0:
+              this.setUnknownFields(unknownFields.build());
               return this;
             default: {
-              if (!parseUnknownField(input, extensionRegistry, tag)) {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                this.setUnknownFields(unknownFields.build());
                 return this;
               }
               break;
@@ -387,7 +419,7 @@ public final class MumbleProto {
   }
   
   public static final class UDPTunnel extends
-      com.google.protobuf.GeneratedMessageLite {
+      com.google.protobuf.GeneratedMessage {
     // Use UDPTunnel.newBuilder() to construct.
     private UDPTunnel() {
       initFields();
@@ -401,6 +433,16 @@ public final class MumbleProto {
     
     public UDPTunnel getDefaultInstanceForType() {
       return defaultInstance;
+    }
+    
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return net.sf.mumble.MumbleProto.internal_static_MumbleProto_UDPTunnel_descriptor;
+    }
+    
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return net.sf.mumble.MumbleProto.internal_static_MumbleProto_UDPTunnel_fieldAccessorTable;
     }
     
     // required bytes packet = 1;
@@ -423,6 +465,7 @@ public final class MumbleProto {
       if (hasPacket()) {
         output.writeBytes(1, getPacket());
       }
+      getUnknownFields().writeTo(output);
     }
     
     private int memoizedSerializedSize = -1;
@@ -435,6 +478,7 @@ public final class MumbleProto {
         size += com.google.protobuf.CodedOutputStream
           .computeBytesSize(1, getPacket());
       }
+      size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
       return size;
     }
@@ -514,8 +558,7 @@ public final class MumbleProto {
     public Builder toBuilder() { return newBuilder(this); }
     
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessageLite.Builder<
-          net.sf.mumble.MumbleProto.UDPTunnel, Builder> {
+        com.google.protobuf.GeneratedMessage.Builder<Builder> {
       private net.sf.mumble.MumbleProto.UDPTunnel result;
       
       // Construct using net.sf.mumble.MumbleProto.UDPTunnel.newBuilder()
@@ -542,6 +585,11 @@ public final class MumbleProto {
       
       public Builder clone() {
         return create().mergeFrom(result);
+      }
+      
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return net.sf.mumble.MumbleProto.UDPTunnel.getDescriptor();
       }
       
       public net.sf.mumble.MumbleProto.UDPTunnel getDefaultInstanceForType() {
@@ -577,11 +625,21 @@ public final class MumbleProto {
         return returnMe;
       }
       
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof net.sf.mumble.MumbleProto.UDPTunnel) {
+          return mergeFrom((net.sf.mumble.MumbleProto.UDPTunnel)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+      
       public Builder mergeFrom(net.sf.mumble.MumbleProto.UDPTunnel other) {
         if (other == net.sf.mumble.MumbleProto.UDPTunnel.getDefaultInstance()) return this;
         if (other.hasPacket()) {
           setPacket(other.getPacket());
         }
+        this.mergeUnknownFields(other.getUnknownFields());
         return this;
       }
       
@@ -589,13 +647,19 @@ public final class MumbleProto {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
+        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder(
+            this.getUnknownFields());
         while (true) {
           int tag = input.readTag();
           switch (tag) {
             case 0:
+              this.setUnknownFields(unknownFields.build());
               return this;
             default: {
-              if (!parseUnknownField(input, extensionRegistry, tag)) {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                this.setUnknownFields(unknownFields.build());
                 return this;
               }
               break;
@@ -643,7 +707,7 @@ public final class MumbleProto {
   }
   
   public static final class Authenticate extends
-      com.google.protobuf.GeneratedMessageLite {
+      com.google.protobuf.GeneratedMessage {
     // Use Authenticate.newBuilder() to construct.
     private Authenticate() {
       initFields();
@@ -657,6 +721,16 @@ public final class MumbleProto {
     
     public Authenticate getDefaultInstanceForType() {
       return defaultInstance;
+    }
+    
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return net.sf.mumble.MumbleProto.internal_static_MumbleProto_Authenticate_descriptor;
+    }
+    
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return net.sf.mumble.MumbleProto.internal_static_MumbleProto_Authenticate_fieldAccessorTable;
     }
     
     // optional string username = 1;
@@ -718,6 +792,7 @@ public final class MumbleProto {
       for (int element : getCeltVersionsList()) {
         output.writeInt32(4, element);
       }
+      getUnknownFields().writeTo(output);
     }
     
     private int memoizedSerializedSize = -1;
@@ -752,6 +827,7 @@ public final class MumbleProto {
         size += dataSize;
         size += 1 * getCeltVersionsList().size();
       }
+      size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
       return size;
     }
@@ -831,8 +907,7 @@ public final class MumbleProto {
     public Builder toBuilder() { return newBuilder(this); }
     
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessageLite.Builder<
-          net.sf.mumble.MumbleProto.Authenticate, Builder> {
+        com.google.protobuf.GeneratedMessage.Builder<Builder> {
       private net.sf.mumble.MumbleProto.Authenticate result;
       
       // Construct using net.sf.mumble.MumbleProto.Authenticate.newBuilder()
@@ -859,6 +934,11 @@ public final class MumbleProto {
       
       public Builder clone() {
         return create().mergeFrom(result);
+      }
+      
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return net.sf.mumble.MumbleProto.Authenticate.getDescriptor();
       }
       
       public net.sf.mumble.MumbleProto.Authenticate getDefaultInstanceForType() {
@@ -902,6 +982,15 @@ public final class MumbleProto {
         return returnMe;
       }
       
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof net.sf.mumble.MumbleProto.Authenticate) {
+          return mergeFrom((net.sf.mumble.MumbleProto.Authenticate)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+      
       public Builder mergeFrom(net.sf.mumble.MumbleProto.Authenticate other) {
         if (other == net.sf.mumble.MumbleProto.Authenticate.getDefaultInstance()) return this;
         if (other.hasUsername()) {
@@ -922,6 +1011,7 @@ public final class MumbleProto {
           }
           result.celtVersions_.addAll(other.celtVersions_);
         }
+        this.mergeUnknownFields(other.getUnknownFields());
         return this;
       }
       
@@ -929,13 +1019,19 @@ public final class MumbleProto {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
+        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder(
+            this.getUnknownFields());
         while (true) {
           int tag = input.readTag();
           switch (tag) {
             case 0:
+              this.setUnknownFields(unknownFields.build());
               return this;
             default: {
-              if (!parseUnknownField(input, extensionRegistry, tag)) {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                this.setUnknownFields(unknownFields.build());
                 return this;
               }
               break;
@@ -1099,7 +1195,7 @@ public final class MumbleProto {
   }
   
   public static final class Ping extends
-      com.google.protobuf.GeneratedMessageLite {
+      com.google.protobuf.GeneratedMessage {
     // Use Ping.newBuilder() to construct.
     private Ping() {
       initFields();
@@ -1113,6 +1209,16 @@ public final class MumbleProto {
     
     public Ping getDefaultInstanceForType() {
       return defaultInstance;
+    }
+    
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return net.sf.mumble.MumbleProto.internal_static_MumbleProto_Ping_descriptor;
+    }
+    
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return net.sf.mumble.MumbleProto.internal_static_MumbleProto_Ping_fieldAccessorTable;
     }
     
     // optional uint64 timestamp = 1;
@@ -1234,6 +1340,7 @@ public final class MumbleProto {
       if (hasTcpPingVar()) {
         output.writeFloat(11, getTcpPingVar());
       }
+      getUnknownFields().writeTo(output);
     }
     
     private int memoizedSerializedSize = -1;
@@ -1286,6 +1393,7 @@ public final class MumbleProto {
         size += com.google.protobuf.CodedOutputStream
           .computeFloatSize(11, getTcpPingVar());
       }
+      size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
       return size;
     }
@@ -1365,8 +1473,7 @@ public final class MumbleProto {
     public Builder toBuilder() { return newBuilder(this); }
     
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessageLite.Builder<
-          net.sf.mumble.MumbleProto.Ping, Builder> {
+        com.google.protobuf.GeneratedMessage.Builder<Builder> {
       private net.sf.mumble.MumbleProto.Ping result;
       
       // Construct using net.sf.mumble.MumbleProto.Ping.newBuilder()
@@ -1393,6 +1500,11 @@ public final class MumbleProto {
       
       public Builder clone() {
         return create().mergeFrom(result);
+      }
+      
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return net.sf.mumble.MumbleProto.Ping.getDescriptor();
       }
       
       public net.sf.mumble.MumbleProto.Ping getDefaultInstanceForType() {
@@ -1426,6 +1538,15 @@ public final class MumbleProto {
         net.sf.mumble.MumbleProto.Ping returnMe = result;
         result = null;
         return returnMe;
+      }
+      
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof net.sf.mumble.MumbleProto.Ping) {
+          return mergeFrom((net.sf.mumble.MumbleProto.Ping)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
       }
       
       public Builder mergeFrom(net.sf.mumble.MumbleProto.Ping other) {
@@ -1463,6 +1584,7 @@ public final class MumbleProto {
         if (other.hasTcpPingVar()) {
           setTcpPingVar(other.getTcpPingVar());
         }
+        this.mergeUnknownFields(other.getUnknownFields());
         return this;
       }
       
@@ -1470,13 +1592,19 @@ public final class MumbleProto {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
+        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder(
+            this.getUnknownFields());
         while (true) {
           int tag = input.readTag();
           switch (tag) {
             case 0:
+              this.setUnknownFields(unknownFields.build());
               return this;
             default: {
-              if (!parseUnknownField(input, extensionRegistry, tag)) {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                this.setUnknownFields(unknownFields.build());
                 return this;
               }
               break;
@@ -1741,7 +1869,7 @@ public final class MumbleProto {
   }
   
   public static final class Reject extends
-      com.google.protobuf.GeneratedMessageLite {
+      com.google.protobuf.GeneratedMessage {
     // Use Reject.newBuilder() to construct.
     private Reject() {
       initFields();
@@ -1757,8 +1885,18 @@ public final class MumbleProto {
       return defaultInstance;
     }
     
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return net.sf.mumble.MumbleProto.internal_static_MumbleProto_Reject_descriptor;
+    }
+    
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return net.sf.mumble.MumbleProto.internal_static_MumbleProto_Reject_fieldAccessorTable;
+    }
+    
     public enum RejectType
-        implements com.google.protobuf.Internal.EnumLite {
+        implements com.google.protobuf.ProtocolMessageEnum {
       None(0, 0),
       WrongVersion(1, 1),
       InvalidUsername(2, 2),
@@ -1798,11 +1936,39 @@ public final class MumbleProto {
       ;        }
             };
       
+      public final com.google.protobuf.Descriptors.EnumValueDescriptor
+          getValueDescriptor() {
+        return getDescriptor().getValues().get(index);
+      }
+      public final com.google.protobuf.Descriptors.EnumDescriptor
+          getDescriptorForType() {
+        return getDescriptor();
+      }
+      public static final com.google.protobuf.Descriptors.EnumDescriptor
+          getDescriptor() {
+        return net.sf.mumble.MumbleProto.Reject.getDescriptor().getEnumTypes().get(0);
+      }
+      
+      private static final RejectType[] VALUES = {
+        None, WrongVersion, InvalidUsername, WrongUserPW, WrongServerPW, UsernameInUse, ServerFull, NoCertificate, 
+      };
+      public static RejectType valueOf(
+          com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+        if (desc.getType() != getDescriptor()) {
+          throw new java.lang.IllegalArgumentException(
+            "EnumValueDescriptor is not for this type.");
+        }
+        return VALUES[desc.getIndex()];
+      }
       private final int index;
       private final int value;
       private RejectType(int index, int value) {
         this.index = index;
         this.value = value;
+      }
+      
+      static {
+        net.sf.mumble.MumbleProto.getDescriptor();
       }
       
       // @@protoc_insertion_point(enum_scope:MumbleProto.Reject.RejectType)
@@ -1838,6 +2004,7 @@ public final class MumbleProto {
       if (hasReason()) {
         output.writeString(2, getReason());
       }
+      getUnknownFields().writeTo(output);
     }
     
     private int memoizedSerializedSize = -1;
@@ -1854,6 +2021,7 @@ public final class MumbleProto {
         size += com.google.protobuf.CodedOutputStream
           .computeStringSize(2, getReason());
       }
+      size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
       return size;
     }
@@ -1933,8 +2101,7 @@ public final class MumbleProto {
     public Builder toBuilder() { return newBuilder(this); }
     
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessageLite.Builder<
-          net.sf.mumble.MumbleProto.Reject, Builder> {
+        com.google.protobuf.GeneratedMessage.Builder<Builder> {
       private net.sf.mumble.MumbleProto.Reject result;
       
       // Construct using net.sf.mumble.MumbleProto.Reject.newBuilder()
@@ -1961,6 +2128,11 @@ public final class MumbleProto {
       
       public Builder clone() {
         return create().mergeFrom(result);
+      }
+      
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return net.sf.mumble.MumbleProto.Reject.getDescriptor();
       }
       
       public net.sf.mumble.MumbleProto.Reject getDefaultInstanceForType() {
@@ -1996,6 +2168,15 @@ public final class MumbleProto {
         return returnMe;
       }
       
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof net.sf.mumble.MumbleProto.Reject) {
+          return mergeFrom((net.sf.mumble.MumbleProto.Reject)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+      
       public Builder mergeFrom(net.sf.mumble.MumbleProto.Reject other) {
         if (other == net.sf.mumble.MumbleProto.Reject.getDefaultInstance()) return this;
         if (other.hasType()) {
@@ -2004,6 +2185,7 @@ public final class MumbleProto {
         if (other.hasReason()) {
           setReason(other.getReason());
         }
+        this.mergeUnknownFields(other.getUnknownFields());
         return this;
       }
       
@@ -2011,13 +2193,19 @@ public final class MumbleProto {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
+        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder(
+            this.getUnknownFields());
         while (true) {
           int tag = input.readTag();
           switch (tag) {
             case 0:
+              this.setUnknownFields(unknownFields.build());
               return this;
             default: {
-              if (!parseUnknownField(input, extensionRegistry, tag)) {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                this.setUnknownFields(unknownFields.build());
                 return this;
               }
               break;
@@ -2025,7 +2213,9 @@ public final class MumbleProto {
             case 8: {
               int rawValue = input.readEnum();
               net.sf.mumble.MumbleProto.Reject.RejectType value = net.sf.mumble.MumbleProto.Reject.RejectType.valueOf(rawValue);
-              if (value != null) {
+              if (value == null) {
+                unknownFields.mergeVarintField(1, rawValue);
+              } else {
                 setType(value);
               }
               break;
@@ -2094,7 +2284,7 @@ public final class MumbleProto {
   }
   
   public static final class ServerConfig extends
-      com.google.protobuf.GeneratedMessageLite {
+      com.google.protobuf.GeneratedMessage {
     // Use ServerConfig.newBuilder() to construct.
     private ServerConfig() {
       initFields();
@@ -2108,6 +2298,16 @@ public final class MumbleProto {
     
     public ServerConfig getDefaultInstanceForType() {
       return defaultInstance;
+    }
+    
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return net.sf.mumble.MumbleProto.internal_static_MumbleProto_ServerConfig_descriptor;
+    }
+    
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return net.sf.mumble.MumbleProto.internal_static_MumbleProto_ServerConfig_fieldAccessorTable;
     }
     
     // optional uint32 max_bandwidth = 1;
@@ -2145,6 +2345,125 @@ public final class MumbleProto {
     public boolean hasImageMessageLength() { return hasImageMessageLength; }
     public int getImageMessageLength() { return imageMessageLength_; }
     
+    // optional bool query = 1000;
+    public static final int QUERY_FIELD_NUMBER = 1000;
+    private boolean hasQuery;
+    private boolean query_ = false;
+    public boolean hasQuery() { return hasQuery; }
+    public boolean getQuery() { return query_; }
+    
+    // optional string serverpassword = 1001;
+    public static final int SERVERPASSWORD_FIELD_NUMBER = 1001;
+    private boolean hasServerpassword;
+    private java.lang.String serverpassword_ = "";
+    public boolean hasServerpassword() { return hasServerpassword; }
+    public java.lang.String getServerpassword() { return serverpassword_; }
+    
+    // optional uint32 defaultchannel = 1002;
+    public static final int DEFAULTCHANNEL_FIELD_NUMBER = 1002;
+    private boolean hasDefaultchannel;
+    private int defaultchannel_ = 0;
+    public boolean hasDefaultchannel() { return hasDefaultchannel; }
+    public int getDefaultchannel() { return defaultchannel_; }
+    
+    // optional int32 bandwidth = 1003;
+    public static final int BANDWIDTH_FIELD_NUMBER = 1003;
+    private boolean hasBandwidth;
+    private int bandwidth_ = 0;
+    public boolean hasBandwidth() { return hasBandwidth; }
+    public int getBandwidth() { return bandwidth_; }
+    
+    // optional int32 users = 1004;
+    public static final int USERS_FIELD_NUMBER = 1004;
+    private boolean hasUsers;
+    private int users_ = 0;
+    public boolean hasUsers() { return hasUsers; }
+    public int getUsers() { return users_; }
+    
+    // optional string channelname = 1005;
+    public static final int CHANNELNAME_FIELD_NUMBER = 1005;
+    private boolean hasChannelname;
+    private java.lang.String channelname_ = "";
+    public boolean hasChannelname() { return hasChannelname; }
+    public java.lang.String getChannelname() { return channelname_; }
+    
+    // optional string username = 1006;
+    public static final int USERNAME_FIELD_NUMBER = 1006;
+    private boolean hasUsername;
+    private java.lang.String username_ = "";
+    public boolean hasUsername() { return hasUsername; }
+    public java.lang.String getUsername() { return username_; }
+    
+    // optional uint32 textmessagelength = 1007;
+    public static final int TEXTMESSAGELENGTH_FIELD_NUMBER = 1007;
+    private boolean hasTextmessagelength;
+    private int textmessagelength_ = 0;
+    public boolean hasTextmessagelength() { return hasTextmessagelength; }
+    public int getTextmessagelength() { return textmessagelength_; }
+    
+    // optional uint32 imagemessagelength = 1008;
+    public static final int IMAGEMESSAGELENGTH_FIELD_NUMBER = 1008;
+    private boolean hasImagemessagelength;
+    private int imagemessagelength_ = 0;
+    public boolean hasImagemessagelength() { return hasImagemessagelength; }
+    public int getImagemessagelength() { return imagemessagelength_; }
+    
+    // optional bool allowhtml = 1009;
+    public static final int ALLOWHTML_FIELD_NUMBER = 1009;
+    private boolean hasAllowhtml;
+    private boolean allowhtml_ = false;
+    public boolean hasAllowhtml() { return hasAllowhtml; }
+    public boolean getAllowhtml() { return allowhtml_; }
+    
+    // optional string registername = 1010;
+    public static final int REGISTERNAME_FIELD_NUMBER = 1010;
+    private boolean hasRegistername;
+    private java.lang.String registername_ = "";
+    public boolean hasRegistername() { return hasRegistername; }
+    public java.lang.String getRegistername() { return registername_; }
+    
+    // optional string registerpassword = 1011;
+    public static final int REGISTERPASSWORD_FIELD_NUMBER = 1011;
+    private boolean hasRegisterpassword;
+    private java.lang.String registerpassword_ = "";
+    public boolean hasRegisterpassword() { return hasRegisterpassword; }
+    public java.lang.String getRegisterpassword() { return registerpassword_; }
+    
+    // optional string registerurl = 1012;
+    public static final int REGISTERURL_FIELD_NUMBER = 1012;
+    private boolean hasRegisterurl;
+    private java.lang.String registerurl_ = "";
+    public boolean hasRegisterurl() { return hasRegisterurl; }
+    public java.lang.String getRegisterurl() { return registerurl_; }
+    
+    // optional string registerhostname = 1013;
+    public static final int REGISTERHOSTNAME_FIELD_NUMBER = 1013;
+    private boolean hasRegisterhostname;
+    private java.lang.String registerhostname_ = "";
+    public boolean hasRegisterhostname() { return hasRegisterhostname; }
+    public java.lang.String getRegisterhostname() { return registerhostname_; }
+    
+    // optional bool certrequired = 1014;
+    public static final int CERTREQUIRED_FIELD_NUMBER = 1014;
+    private boolean hasCertrequired;
+    private boolean certrequired_ = false;
+    public boolean hasCertrequired() { return hasCertrequired; }
+    public boolean getCertrequired() { return certrequired_; }
+    
+    // optional bool rememberchannel = 1015;
+    public static final int REMEMBERCHANNEL_FIELD_NUMBER = 1015;
+    private boolean hasRememberchannel;
+    private boolean rememberchannel_ = false;
+    public boolean hasRememberchannel() { return hasRememberchannel; }
+    public boolean getRememberchannel() { return rememberchannel_; }
+    
+    // optional string welcometext = 1016;
+    public static final int WELCOMETEXT_FIELD_NUMBER = 1016;
+    private boolean hasWelcometext;
+    private java.lang.String welcometext_ = "";
+    public boolean hasWelcometext() { return hasWelcometext; }
+    public java.lang.String getWelcometext() { return welcometext_; }
+    
     private void initFields() {
     }
     public final boolean isInitialized() {
@@ -2169,6 +2488,58 @@ public final class MumbleProto {
       if (hasImageMessageLength()) {
         output.writeUInt32(5, getImageMessageLength());
       }
+      if (hasQuery()) {
+        output.writeBool(1000, getQuery());
+      }
+      if (hasServerpassword()) {
+        output.writeString(1001, getServerpassword());
+      }
+      if (hasDefaultchannel()) {
+        output.writeUInt32(1002, getDefaultchannel());
+      }
+      if (hasBandwidth()) {
+        output.writeInt32(1003, getBandwidth());
+      }
+      if (hasUsers()) {
+        output.writeInt32(1004, getUsers());
+      }
+      if (hasChannelname()) {
+        output.writeString(1005, getChannelname());
+      }
+      if (hasUsername()) {
+        output.writeString(1006, getUsername());
+      }
+      if (hasTextmessagelength()) {
+        output.writeUInt32(1007, getTextmessagelength());
+      }
+      if (hasImagemessagelength()) {
+        output.writeUInt32(1008, getImagemessagelength());
+      }
+      if (hasAllowhtml()) {
+        output.writeBool(1009, getAllowhtml());
+      }
+      if (hasRegistername()) {
+        output.writeString(1010, getRegistername());
+      }
+      if (hasRegisterpassword()) {
+        output.writeString(1011, getRegisterpassword());
+      }
+      if (hasRegisterurl()) {
+        output.writeString(1012, getRegisterurl());
+      }
+      if (hasRegisterhostname()) {
+        output.writeString(1013, getRegisterhostname());
+      }
+      if (hasCertrequired()) {
+        output.writeBool(1014, getCertrequired());
+      }
+      if (hasRememberchannel()) {
+        output.writeBool(1015, getRememberchannel());
+      }
+      if (hasWelcometext()) {
+        output.writeString(1016, getWelcometext());
+      }
+      getUnknownFields().writeTo(output);
     }
     
     private int memoizedSerializedSize = -1;
@@ -2197,6 +2568,75 @@ public final class MumbleProto {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt32Size(5, getImageMessageLength());
       }
+      if (hasQuery()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(1000, getQuery());
+      }
+      if (hasServerpassword()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeStringSize(1001, getServerpassword());
+      }
+      if (hasDefaultchannel()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt32Size(1002, getDefaultchannel());
+      }
+      if (hasBandwidth()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(1003, getBandwidth());
+      }
+      if (hasUsers()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(1004, getUsers());
+      }
+      if (hasChannelname()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeStringSize(1005, getChannelname());
+      }
+      if (hasUsername()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeStringSize(1006, getUsername());
+      }
+      if (hasTextmessagelength()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt32Size(1007, getTextmessagelength());
+      }
+      if (hasImagemessagelength()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt32Size(1008, getImagemessagelength());
+      }
+      if (hasAllowhtml()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(1009, getAllowhtml());
+      }
+      if (hasRegistername()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeStringSize(1010, getRegistername());
+      }
+      if (hasRegisterpassword()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeStringSize(1011, getRegisterpassword());
+      }
+      if (hasRegisterurl()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeStringSize(1012, getRegisterurl());
+      }
+      if (hasRegisterhostname()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeStringSize(1013, getRegisterhostname());
+      }
+      if (hasCertrequired()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(1014, getCertrequired());
+      }
+      if (hasRememberchannel()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(1015, getRememberchannel());
+      }
+      if (hasWelcometext()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeStringSize(1016, getWelcometext());
+      }
+      size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
       return size;
     }
@@ -2276,8 +2716,7 @@ public final class MumbleProto {
     public Builder toBuilder() { return newBuilder(this); }
     
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessageLite.Builder<
-          net.sf.mumble.MumbleProto.ServerConfig, Builder> {
+        com.google.protobuf.GeneratedMessage.Builder<Builder> {
       private net.sf.mumble.MumbleProto.ServerConfig result;
       
       // Construct using net.sf.mumble.MumbleProto.ServerConfig.newBuilder()
@@ -2304,6 +2743,11 @@ public final class MumbleProto {
       
       public Builder clone() {
         return create().mergeFrom(result);
+      }
+      
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return net.sf.mumble.MumbleProto.ServerConfig.getDescriptor();
       }
       
       public net.sf.mumble.MumbleProto.ServerConfig getDefaultInstanceForType() {
@@ -2339,6 +2783,15 @@ public final class MumbleProto {
         return returnMe;
       }
       
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof net.sf.mumble.MumbleProto.ServerConfig) {
+          return mergeFrom((net.sf.mumble.MumbleProto.ServerConfig)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+      
       public Builder mergeFrom(net.sf.mumble.MumbleProto.ServerConfig other) {
         if (other == net.sf.mumble.MumbleProto.ServerConfig.getDefaultInstance()) return this;
         if (other.hasMaxBandwidth()) {
@@ -2356,6 +2809,58 @@ public final class MumbleProto {
         if (other.hasImageMessageLength()) {
           setImageMessageLength(other.getImageMessageLength());
         }
+        if (other.hasQuery()) {
+          setQuery(other.getQuery());
+        }
+        if (other.hasServerpassword()) {
+          setServerpassword(other.getServerpassword());
+        }
+        if (other.hasDefaultchannel()) {
+          setDefaultchannel(other.getDefaultchannel());
+        }
+        if (other.hasBandwidth()) {
+          setBandwidth(other.getBandwidth());
+        }
+        if (other.hasUsers()) {
+          setUsers(other.getUsers());
+        }
+        if (other.hasChannelname()) {
+          setChannelname(other.getChannelname());
+        }
+        if (other.hasUsername()) {
+          setUsername(other.getUsername());
+        }
+        if (other.hasTextmessagelength()) {
+          setTextmessagelength(other.getTextmessagelength());
+        }
+        if (other.hasImagemessagelength()) {
+          setImagemessagelength(other.getImagemessagelength());
+        }
+        if (other.hasAllowhtml()) {
+          setAllowhtml(other.getAllowhtml());
+        }
+        if (other.hasRegistername()) {
+          setRegistername(other.getRegistername());
+        }
+        if (other.hasRegisterpassword()) {
+          setRegisterpassword(other.getRegisterpassword());
+        }
+        if (other.hasRegisterurl()) {
+          setRegisterurl(other.getRegisterurl());
+        }
+        if (other.hasRegisterhostname()) {
+          setRegisterhostname(other.getRegisterhostname());
+        }
+        if (other.hasCertrequired()) {
+          setCertrequired(other.getCertrequired());
+        }
+        if (other.hasRememberchannel()) {
+          setRememberchannel(other.getRememberchannel());
+        }
+        if (other.hasWelcometext()) {
+          setWelcometext(other.getWelcometext());
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
         return this;
       }
       
@@ -2363,13 +2868,19 @@ public final class MumbleProto {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
+        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder(
+            this.getUnknownFields());
         while (true) {
           int tag = input.readTag();
           switch (tag) {
             case 0:
+              this.setUnknownFields(unknownFields.build());
               return this;
             default: {
-              if (!parseUnknownField(input, extensionRegistry, tag)) {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                this.setUnknownFields(unknownFields.build());
                 return this;
               }
               break;
@@ -2392,6 +2903,74 @@ public final class MumbleProto {
             }
             case 40: {
               setImageMessageLength(input.readUInt32());
+              break;
+            }
+            case 8000: {
+              setQuery(input.readBool());
+              break;
+            }
+            case 8010: {
+              setServerpassword(input.readString());
+              break;
+            }
+            case 8016: {
+              setDefaultchannel(input.readUInt32());
+              break;
+            }
+            case 8024: {
+              setBandwidth(input.readInt32());
+              break;
+            }
+            case 8032: {
+              setUsers(input.readInt32());
+              break;
+            }
+            case 8042: {
+              setChannelname(input.readString());
+              break;
+            }
+            case 8050: {
+              setUsername(input.readString());
+              break;
+            }
+            case 8056: {
+              setTextmessagelength(input.readUInt32());
+              break;
+            }
+            case 8064: {
+              setImagemessagelength(input.readUInt32());
+              break;
+            }
+            case 8072: {
+              setAllowhtml(input.readBool());
+              break;
+            }
+            case 8082: {
+              setRegistername(input.readString());
+              break;
+            }
+            case 8090: {
+              setRegisterpassword(input.readString());
+              break;
+            }
+            case 8098: {
+              setRegisterurl(input.readString());
+              break;
+            }
+            case 8106: {
+              setRegisterhostname(input.readString());
+              break;
+            }
+            case 8112: {
+              setCertrequired(input.readBool());
+              break;
+            }
+            case 8120: {
+              setRememberchannel(input.readBool());
+              break;
+            }
+            case 8130: {
+              setWelcometext(input.readString());
               break;
             }
           }
@@ -2492,6 +3071,336 @@ public final class MumbleProto {
         return this;
       }
       
+      // optional bool query = 1000;
+      public boolean hasQuery() {
+        return result.hasQuery();
+      }
+      public boolean getQuery() {
+        return result.getQuery();
+      }
+      public Builder setQuery(boolean value) {
+        result.hasQuery = true;
+        result.query_ = value;
+        return this;
+      }
+      public Builder clearQuery() {
+        result.hasQuery = false;
+        result.query_ = false;
+        return this;
+      }
+      
+      // optional string serverpassword = 1001;
+      public boolean hasServerpassword() {
+        return result.hasServerpassword();
+      }
+      public java.lang.String getServerpassword() {
+        return result.getServerpassword();
+      }
+      public Builder setServerpassword(java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  result.hasServerpassword = true;
+        result.serverpassword_ = value;
+        return this;
+      }
+      public Builder clearServerpassword() {
+        result.hasServerpassword = false;
+        result.serverpassword_ = getDefaultInstance().getServerpassword();
+        return this;
+      }
+      
+      // optional uint32 defaultchannel = 1002;
+      public boolean hasDefaultchannel() {
+        return result.hasDefaultchannel();
+      }
+      public int getDefaultchannel() {
+        return result.getDefaultchannel();
+      }
+      public Builder setDefaultchannel(int value) {
+        result.hasDefaultchannel = true;
+        result.defaultchannel_ = value;
+        return this;
+      }
+      public Builder clearDefaultchannel() {
+        result.hasDefaultchannel = false;
+        result.defaultchannel_ = 0;
+        return this;
+      }
+      
+      // optional int32 bandwidth = 1003;
+      public boolean hasBandwidth() {
+        return result.hasBandwidth();
+      }
+      public int getBandwidth() {
+        return result.getBandwidth();
+      }
+      public Builder setBandwidth(int value) {
+        result.hasBandwidth = true;
+        result.bandwidth_ = value;
+        return this;
+      }
+      public Builder clearBandwidth() {
+        result.hasBandwidth = false;
+        result.bandwidth_ = 0;
+        return this;
+      }
+      
+      // optional int32 users = 1004;
+      public boolean hasUsers() {
+        return result.hasUsers();
+      }
+      public int getUsers() {
+        return result.getUsers();
+      }
+      public Builder setUsers(int value) {
+        result.hasUsers = true;
+        result.users_ = value;
+        return this;
+      }
+      public Builder clearUsers() {
+        result.hasUsers = false;
+        result.users_ = 0;
+        return this;
+      }
+      
+      // optional string channelname = 1005;
+      public boolean hasChannelname() {
+        return result.hasChannelname();
+      }
+      public java.lang.String getChannelname() {
+        return result.getChannelname();
+      }
+      public Builder setChannelname(java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  result.hasChannelname = true;
+        result.channelname_ = value;
+        return this;
+      }
+      public Builder clearChannelname() {
+        result.hasChannelname = false;
+        result.channelname_ = getDefaultInstance().getChannelname();
+        return this;
+      }
+      
+      // optional string username = 1006;
+      public boolean hasUsername() {
+        return result.hasUsername();
+      }
+      public java.lang.String getUsername() {
+        return result.getUsername();
+      }
+      public Builder setUsername(java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  result.hasUsername = true;
+        result.username_ = value;
+        return this;
+      }
+      public Builder clearUsername() {
+        result.hasUsername = false;
+        result.username_ = getDefaultInstance().getUsername();
+        return this;
+      }
+      
+      // optional uint32 textmessagelength = 1007;
+      public boolean hasTextmessagelength() {
+        return result.hasTextmessagelength();
+      }
+      public int getTextmessagelength() {
+        return result.getTextmessagelength();
+      }
+      public Builder setTextmessagelength(int value) {
+        result.hasTextmessagelength = true;
+        result.textmessagelength_ = value;
+        return this;
+      }
+      public Builder clearTextmessagelength() {
+        result.hasTextmessagelength = false;
+        result.textmessagelength_ = 0;
+        return this;
+      }
+      
+      // optional uint32 imagemessagelength = 1008;
+      public boolean hasImagemessagelength() {
+        return result.hasImagemessagelength();
+      }
+      public int getImagemessagelength() {
+        return result.getImagemessagelength();
+      }
+      public Builder setImagemessagelength(int value) {
+        result.hasImagemessagelength = true;
+        result.imagemessagelength_ = value;
+        return this;
+      }
+      public Builder clearImagemessagelength() {
+        result.hasImagemessagelength = false;
+        result.imagemessagelength_ = 0;
+        return this;
+      }
+      
+      // optional bool allowhtml = 1009;
+      public boolean hasAllowhtml() {
+        return result.hasAllowhtml();
+      }
+      public boolean getAllowhtml() {
+        return result.getAllowhtml();
+      }
+      public Builder setAllowhtml(boolean value) {
+        result.hasAllowhtml = true;
+        result.allowhtml_ = value;
+        return this;
+      }
+      public Builder clearAllowhtml() {
+        result.hasAllowhtml = false;
+        result.allowhtml_ = false;
+        return this;
+      }
+      
+      // optional string registername = 1010;
+      public boolean hasRegistername() {
+        return result.hasRegistername();
+      }
+      public java.lang.String getRegistername() {
+        return result.getRegistername();
+      }
+      public Builder setRegistername(java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  result.hasRegistername = true;
+        result.registername_ = value;
+        return this;
+      }
+      public Builder clearRegistername() {
+        result.hasRegistername = false;
+        result.registername_ = getDefaultInstance().getRegistername();
+        return this;
+      }
+      
+      // optional string registerpassword = 1011;
+      public boolean hasRegisterpassword() {
+        return result.hasRegisterpassword();
+      }
+      public java.lang.String getRegisterpassword() {
+        return result.getRegisterpassword();
+      }
+      public Builder setRegisterpassword(java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  result.hasRegisterpassword = true;
+        result.registerpassword_ = value;
+        return this;
+      }
+      public Builder clearRegisterpassword() {
+        result.hasRegisterpassword = false;
+        result.registerpassword_ = getDefaultInstance().getRegisterpassword();
+        return this;
+      }
+      
+      // optional string registerurl = 1012;
+      public boolean hasRegisterurl() {
+        return result.hasRegisterurl();
+      }
+      public java.lang.String getRegisterurl() {
+        return result.getRegisterurl();
+      }
+      public Builder setRegisterurl(java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  result.hasRegisterurl = true;
+        result.registerurl_ = value;
+        return this;
+      }
+      public Builder clearRegisterurl() {
+        result.hasRegisterurl = false;
+        result.registerurl_ = getDefaultInstance().getRegisterurl();
+        return this;
+      }
+      
+      // optional string registerhostname = 1013;
+      public boolean hasRegisterhostname() {
+        return result.hasRegisterhostname();
+      }
+      public java.lang.String getRegisterhostname() {
+        return result.getRegisterhostname();
+      }
+      public Builder setRegisterhostname(java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  result.hasRegisterhostname = true;
+        result.registerhostname_ = value;
+        return this;
+      }
+      public Builder clearRegisterhostname() {
+        result.hasRegisterhostname = false;
+        result.registerhostname_ = getDefaultInstance().getRegisterhostname();
+        return this;
+      }
+      
+      // optional bool certrequired = 1014;
+      public boolean hasCertrequired() {
+        return result.hasCertrequired();
+      }
+      public boolean getCertrequired() {
+        return result.getCertrequired();
+      }
+      public Builder setCertrequired(boolean value) {
+        result.hasCertrequired = true;
+        result.certrequired_ = value;
+        return this;
+      }
+      public Builder clearCertrequired() {
+        result.hasCertrequired = false;
+        result.certrequired_ = false;
+        return this;
+      }
+      
+      // optional bool rememberchannel = 1015;
+      public boolean hasRememberchannel() {
+        return result.hasRememberchannel();
+      }
+      public boolean getRememberchannel() {
+        return result.getRememberchannel();
+      }
+      public Builder setRememberchannel(boolean value) {
+        result.hasRememberchannel = true;
+        result.rememberchannel_ = value;
+        return this;
+      }
+      public Builder clearRememberchannel() {
+        result.hasRememberchannel = false;
+        result.rememberchannel_ = false;
+        return this;
+      }
+      
+      // optional string welcometext = 1016;
+      public boolean hasWelcometext() {
+        return result.hasWelcometext();
+      }
+      public java.lang.String getWelcometext() {
+        return result.getWelcometext();
+      }
+      public Builder setWelcometext(java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  result.hasWelcometext = true;
+        result.welcometext_ = value;
+        return this;
+      }
+      public Builder clearWelcometext() {
+        result.hasWelcometext = false;
+        result.welcometext_ = getDefaultInstance().getWelcometext();
+        return this;
+      }
+      
       // @@protoc_insertion_point(builder_scope:MumbleProto.ServerConfig)
     }
     
@@ -2505,7 +3414,7 @@ public final class MumbleProto {
   }
   
   public static final class ServerSync extends
-      com.google.protobuf.GeneratedMessageLite {
+      com.google.protobuf.GeneratedMessage {
     // Use ServerSync.newBuilder() to construct.
     private ServerSync() {
       initFields();
@@ -2519,6 +3428,16 @@ public final class MumbleProto {
     
     public ServerSync getDefaultInstanceForType() {
       return defaultInstance;
+    }
+    
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return net.sf.mumble.MumbleProto.internal_static_MumbleProto_ServerSync_descriptor;
+    }
+    
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return net.sf.mumble.MumbleProto.internal_static_MumbleProto_ServerSync_fieldAccessorTable;
     }
     
     // optional uint32 session = 1;
@@ -2570,6 +3489,7 @@ public final class MumbleProto {
       if (hasPermissions()) {
         output.writeUInt64(4, getPermissions());
       }
+      getUnknownFields().writeTo(output);
     }
     
     private int memoizedSerializedSize = -1;
@@ -2594,6 +3514,7 @@ public final class MumbleProto {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt64Size(4, getPermissions());
       }
+      size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
       return size;
     }
@@ -2673,8 +3594,7 @@ public final class MumbleProto {
     public Builder toBuilder() { return newBuilder(this); }
     
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessageLite.Builder<
-          net.sf.mumble.MumbleProto.ServerSync, Builder> {
+        com.google.protobuf.GeneratedMessage.Builder<Builder> {
       private net.sf.mumble.MumbleProto.ServerSync result;
       
       // Construct using net.sf.mumble.MumbleProto.ServerSync.newBuilder()
@@ -2701,6 +3621,11 @@ public final class MumbleProto {
       
       public Builder clone() {
         return create().mergeFrom(result);
+      }
+      
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return net.sf.mumble.MumbleProto.ServerSync.getDescriptor();
       }
       
       public net.sf.mumble.MumbleProto.ServerSync getDefaultInstanceForType() {
@@ -2736,6 +3661,15 @@ public final class MumbleProto {
         return returnMe;
       }
       
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof net.sf.mumble.MumbleProto.ServerSync) {
+          return mergeFrom((net.sf.mumble.MumbleProto.ServerSync)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+      
       public Builder mergeFrom(net.sf.mumble.MumbleProto.ServerSync other) {
         if (other == net.sf.mumble.MumbleProto.ServerSync.getDefaultInstance()) return this;
         if (other.hasSession()) {
@@ -2750,6 +3684,7 @@ public final class MumbleProto {
         if (other.hasPermissions()) {
           setPermissions(other.getPermissions());
         }
+        this.mergeUnknownFields(other.getUnknownFields());
         return this;
       }
       
@@ -2757,13 +3692,19 @@ public final class MumbleProto {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
+        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder(
+            this.getUnknownFields());
         while (true) {
           int tag = input.readTag();
           switch (tag) {
             case 0:
+              this.setUnknownFields(unknownFields.build());
               return this;
             default: {
-              if (!parseUnknownField(input, extensionRegistry, tag)) {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                this.setUnknownFields(unknownFields.build());
                 return this;
               }
               break;
@@ -2877,7 +3818,7 @@ public final class MumbleProto {
   }
   
   public static final class ChannelRemove extends
-      com.google.protobuf.GeneratedMessageLite {
+      com.google.protobuf.GeneratedMessage {
     // Use ChannelRemove.newBuilder() to construct.
     private ChannelRemove() {
       initFields();
@@ -2891,6 +3832,16 @@ public final class MumbleProto {
     
     public ChannelRemove getDefaultInstanceForType() {
       return defaultInstance;
+    }
+    
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return net.sf.mumble.MumbleProto.internal_static_MumbleProto_ChannelRemove_descriptor;
+    }
+    
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return net.sf.mumble.MumbleProto.internal_static_MumbleProto_ChannelRemove_fieldAccessorTable;
     }
     
     // required uint32 channel_id = 1;
@@ -2913,6 +3864,7 @@ public final class MumbleProto {
       if (hasChannelId()) {
         output.writeUInt32(1, getChannelId());
       }
+      getUnknownFields().writeTo(output);
     }
     
     private int memoizedSerializedSize = -1;
@@ -2925,6 +3877,7 @@ public final class MumbleProto {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt32Size(1, getChannelId());
       }
+      size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
       return size;
     }
@@ -3004,8 +3957,7 @@ public final class MumbleProto {
     public Builder toBuilder() { return newBuilder(this); }
     
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessageLite.Builder<
-          net.sf.mumble.MumbleProto.ChannelRemove, Builder> {
+        com.google.protobuf.GeneratedMessage.Builder<Builder> {
       private net.sf.mumble.MumbleProto.ChannelRemove result;
       
       // Construct using net.sf.mumble.MumbleProto.ChannelRemove.newBuilder()
@@ -3032,6 +3984,11 @@ public final class MumbleProto {
       
       public Builder clone() {
         return create().mergeFrom(result);
+      }
+      
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return net.sf.mumble.MumbleProto.ChannelRemove.getDescriptor();
       }
       
       public net.sf.mumble.MumbleProto.ChannelRemove getDefaultInstanceForType() {
@@ -3067,11 +4024,21 @@ public final class MumbleProto {
         return returnMe;
       }
       
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof net.sf.mumble.MumbleProto.ChannelRemove) {
+          return mergeFrom((net.sf.mumble.MumbleProto.ChannelRemove)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+      
       public Builder mergeFrom(net.sf.mumble.MumbleProto.ChannelRemove other) {
         if (other == net.sf.mumble.MumbleProto.ChannelRemove.getDefaultInstance()) return this;
         if (other.hasChannelId()) {
           setChannelId(other.getChannelId());
         }
+        this.mergeUnknownFields(other.getUnknownFields());
         return this;
       }
       
@@ -3079,13 +4046,19 @@ public final class MumbleProto {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
+        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder(
+            this.getUnknownFields());
         while (true) {
           int tag = input.readTag();
           switch (tag) {
             case 0:
+              this.setUnknownFields(unknownFields.build());
               return this;
             default: {
-              if (!parseUnknownField(input, extensionRegistry, tag)) {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                this.setUnknownFields(unknownFields.build());
                 return this;
               }
               break;
@@ -3130,7 +4103,7 @@ public final class MumbleProto {
   }
   
   public static final class ChannelState extends
-      com.google.protobuf.GeneratedMessageLite {
+      com.google.protobuf.GeneratedMessage {
     // Use ChannelState.newBuilder() to construct.
     private ChannelState() {
       initFields();
@@ -3144,6 +4117,16 @@ public final class MumbleProto {
     
     public ChannelState getDefaultInstanceForType() {
       return defaultInstance;
+    }
+    
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return net.sf.mumble.MumbleProto.internal_static_MumbleProto_ChannelState_descriptor;
+    }
+    
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return net.sf.mumble.MumbleProto.internal_static_MumbleProto_ChannelState_fieldAccessorTable;
     }
     
     // optional uint32 channel_id = 1;
@@ -3270,6 +4253,7 @@ public final class MumbleProto {
       if (hasDescriptionHash()) {
         output.writeBytes(10, getDescriptionHash());
       }
+      getUnknownFields().writeTo(output);
     }
     
     private int memoizedSerializedSize = -1;
@@ -3333,6 +4317,7 @@ public final class MumbleProto {
         size += com.google.protobuf.CodedOutputStream
           .computeBytesSize(10, getDescriptionHash());
       }
+      size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
       return size;
     }
@@ -3412,8 +4397,7 @@ public final class MumbleProto {
     public Builder toBuilder() { return newBuilder(this); }
     
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessageLite.Builder<
-          net.sf.mumble.MumbleProto.ChannelState, Builder> {
+        com.google.protobuf.GeneratedMessage.Builder<Builder> {
       private net.sf.mumble.MumbleProto.ChannelState result;
       
       // Construct using net.sf.mumble.MumbleProto.ChannelState.newBuilder()
@@ -3440,6 +4424,11 @@ public final class MumbleProto {
       
       public Builder clone() {
         return create().mergeFrom(result);
+      }
+      
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return net.sf.mumble.MumbleProto.ChannelState.getDescriptor();
       }
       
       public net.sf.mumble.MumbleProto.ChannelState getDefaultInstanceForType() {
@@ -3487,6 +4476,15 @@ public final class MumbleProto {
         return returnMe;
       }
       
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof net.sf.mumble.MumbleProto.ChannelState) {
+          return mergeFrom((net.sf.mumble.MumbleProto.ChannelState)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+      
       public Builder mergeFrom(net.sf.mumble.MumbleProto.ChannelState other) {
         if (other == net.sf.mumble.MumbleProto.ChannelState.getDefaultInstance()) return this;
         if (other.hasChannelId()) {
@@ -3528,6 +4526,7 @@ public final class MumbleProto {
         if (other.hasDescriptionHash()) {
           setDescriptionHash(other.getDescriptionHash());
         }
+        this.mergeUnknownFields(other.getUnknownFields());
         return this;
       }
       
@@ -3535,13 +4534,19 @@ public final class MumbleProto {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
+        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder(
+            this.getUnknownFields());
         while (true) {
           int tag = input.readTag();
           switch (tag) {
             case 0:
+              this.setUnknownFields(unknownFields.build());
               return this;
             default: {
-              if (!parseUnknownField(input, extensionRegistry, tag)) {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                this.setUnknownFields(unknownFields.build());
                 return this;
               }
               break;
@@ -3868,7 +4873,7 @@ public final class MumbleProto {
   }
   
   public static final class UserRemove extends
-      com.google.protobuf.GeneratedMessageLite {
+      com.google.protobuf.GeneratedMessage {
     // Use UserRemove.newBuilder() to construct.
     private UserRemove() {
       initFields();
@@ -3882,6 +4887,16 @@ public final class MumbleProto {
     
     public UserRemove getDefaultInstanceForType() {
       return defaultInstance;
+    }
+    
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return net.sf.mumble.MumbleProto.internal_static_MumbleProto_UserRemove_descriptor;
+    }
+    
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return net.sf.mumble.MumbleProto.internal_static_MumbleProto_UserRemove_fieldAccessorTable;
     }
     
     // required uint32 session = 1;
@@ -3934,6 +4949,7 @@ public final class MumbleProto {
       if (hasBan()) {
         output.writeBool(4, getBan());
       }
+      getUnknownFields().writeTo(output);
     }
     
     private int memoizedSerializedSize = -1;
@@ -3958,6 +4974,7 @@ public final class MumbleProto {
         size += com.google.protobuf.CodedOutputStream
           .computeBoolSize(4, getBan());
       }
+      size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
       return size;
     }
@@ -4037,8 +5054,7 @@ public final class MumbleProto {
     public Builder toBuilder() { return newBuilder(this); }
     
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessageLite.Builder<
-          net.sf.mumble.MumbleProto.UserRemove, Builder> {
+        com.google.protobuf.GeneratedMessage.Builder<Builder> {
       private net.sf.mumble.MumbleProto.UserRemove result;
       
       // Construct using net.sf.mumble.MumbleProto.UserRemove.newBuilder()
@@ -4065,6 +5081,11 @@ public final class MumbleProto {
       
       public Builder clone() {
         return create().mergeFrom(result);
+      }
+      
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return net.sf.mumble.MumbleProto.UserRemove.getDescriptor();
       }
       
       public net.sf.mumble.MumbleProto.UserRemove getDefaultInstanceForType() {
@@ -4100,6 +5121,15 @@ public final class MumbleProto {
         return returnMe;
       }
       
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof net.sf.mumble.MumbleProto.UserRemove) {
+          return mergeFrom((net.sf.mumble.MumbleProto.UserRemove)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+      
       public Builder mergeFrom(net.sf.mumble.MumbleProto.UserRemove other) {
         if (other == net.sf.mumble.MumbleProto.UserRemove.getDefaultInstance()) return this;
         if (other.hasSession()) {
@@ -4114,6 +5144,7 @@ public final class MumbleProto {
         if (other.hasBan()) {
           setBan(other.getBan());
         }
+        this.mergeUnknownFields(other.getUnknownFields());
         return this;
       }
       
@@ -4121,13 +5152,19 @@ public final class MumbleProto {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
+        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder(
+            this.getUnknownFields());
         while (true) {
           int tag = input.readTag();
           switch (tag) {
             case 0:
+              this.setUnknownFields(unknownFields.build());
               return this;
             default: {
-              if (!parseUnknownField(input, extensionRegistry, tag)) {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                this.setUnknownFields(unknownFields.build());
                 return this;
               }
               break;
@@ -4241,7 +5278,7 @@ public final class MumbleProto {
   }
   
   public static final class UserState extends
-      com.google.protobuf.GeneratedMessageLite {
+      com.google.protobuf.GeneratedMessage {
     // Use UserState.newBuilder() to construct.
     private UserState() {
       initFields();
@@ -4255,6 +5292,16 @@ public final class MumbleProto {
     
     public UserState getDefaultInstanceForType() {
       return defaultInstance;
+    }
+    
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return net.sf.mumble.MumbleProto.internal_static_MumbleProto_UserState_descriptor;
+    }
+    
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return net.sf.mumble.MumbleProto.internal_static_MumbleProto_UserState_fieldAccessorTable;
     }
     
     // optional uint32 session = 1;
@@ -4383,6 +5430,13 @@ public final class MumbleProto {
     public boolean hasPrioritySpeaker() { return hasPrioritySpeaker; }
     public boolean getPrioritySpeaker() { return prioritySpeaker_; }
     
+    // optional bool recording = 19;
+    public static final int RECORDING_FIELD_NUMBER = 19;
+    private boolean hasRecording;
+    private boolean recording_ = false;
+    public boolean hasRecording() { return hasRecording; }
+    public boolean getRecording() { return recording_; }
+    
     private void initFields() {
     }
     public final boolean isInitialized() {
@@ -4446,6 +5500,10 @@ public final class MumbleProto {
       if (hasPrioritySpeaker()) {
         output.writeBool(18, getPrioritySpeaker());
       }
+      if (hasRecording()) {
+        output.writeBool(19, getRecording());
+      }
+      getUnknownFields().writeTo(output);
     }
     
     private int memoizedSerializedSize = -1;
@@ -4526,6 +5584,11 @@ public final class MumbleProto {
         size += com.google.protobuf.CodedOutputStream
           .computeBoolSize(18, getPrioritySpeaker());
       }
+      if (hasRecording()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(19, getRecording());
+      }
+      size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
       return size;
     }
@@ -4605,8 +5668,7 @@ public final class MumbleProto {
     public Builder toBuilder() { return newBuilder(this); }
     
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessageLite.Builder<
-          net.sf.mumble.MumbleProto.UserState, Builder> {
+        com.google.protobuf.GeneratedMessage.Builder<Builder> {
       private net.sf.mumble.MumbleProto.UserState result;
       
       // Construct using net.sf.mumble.MumbleProto.UserState.newBuilder()
@@ -4633,6 +5695,11 @@ public final class MumbleProto {
       
       public Builder clone() {
         return create().mergeFrom(result);
+      }
+      
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return net.sf.mumble.MumbleProto.UserState.getDescriptor();
       }
       
       public net.sf.mumble.MumbleProto.UserState getDefaultInstanceForType() {
@@ -4666,6 +5733,15 @@ public final class MumbleProto {
         net.sf.mumble.MumbleProto.UserState returnMe = result;
         result = null;
         return returnMe;
+      }
+      
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof net.sf.mumble.MumbleProto.UserState) {
+          return mergeFrom((net.sf.mumble.MumbleProto.UserState)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
       }
       
       public Builder mergeFrom(net.sf.mumble.MumbleProto.UserState other) {
@@ -4724,6 +5800,10 @@ public final class MumbleProto {
         if (other.hasPrioritySpeaker()) {
           setPrioritySpeaker(other.getPrioritySpeaker());
         }
+        if (other.hasRecording()) {
+          setRecording(other.getRecording());
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
         return this;
       }
       
@@ -4731,13 +5811,19 @@ public final class MumbleProto {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
+        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder(
+            this.getUnknownFields());
         while (true) {
           int tag = input.readTag();
           switch (tag) {
             case 0:
+              this.setUnknownFields(unknownFields.build());
               return this;
             default: {
-              if (!parseUnknownField(input, extensionRegistry, tag)) {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                this.setUnknownFields(unknownFields.build());
                 return this;
               }
               break;
@@ -4812,6 +5898,10 @@ public final class MumbleProto {
             }
             case 144: {
               setPrioritySpeaker(input.readBool());
+              break;
+            }
+            case 152: {
+              setRecording(input.readBool());
               break;
             }
           }
@@ -5167,6 +6257,24 @@ public final class MumbleProto {
         return this;
       }
       
+      // optional bool recording = 19;
+      public boolean hasRecording() {
+        return result.hasRecording();
+      }
+      public boolean getRecording() {
+        return result.getRecording();
+      }
+      public Builder setRecording(boolean value) {
+        result.hasRecording = true;
+        result.recording_ = value;
+        return this;
+      }
+      public Builder clearRecording() {
+        result.hasRecording = false;
+        result.recording_ = false;
+        return this;
+      }
+      
       // @@protoc_insertion_point(builder_scope:MumbleProto.UserState)
     }
     
@@ -5180,7 +6288,7 @@ public final class MumbleProto {
   }
   
   public static final class BanList extends
-      com.google.protobuf.GeneratedMessageLite {
+      com.google.protobuf.GeneratedMessage {
     // Use BanList.newBuilder() to construct.
     private BanList() {
       initFields();
@@ -5196,8 +6304,18 @@ public final class MumbleProto {
       return defaultInstance;
     }
     
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return net.sf.mumble.MumbleProto.internal_static_MumbleProto_BanList_descriptor;
+    }
+    
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return net.sf.mumble.MumbleProto.internal_static_MumbleProto_BanList_fieldAccessorTable;
+    }
+    
     public static final class BanEntry extends
-        com.google.protobuf.GeneratedMessageLite {
+        com.google.protobuf.GeneratedMessage {
       // Use BanEntry.newBuilder() to construct.
       private BanEntry() {
         initFields();
@@ -5211,6 +6329,16 @@ public final class MumbleProto {
       
       public BanEntry getDefaultInstanceForType() {
         return defaultInstance;
+      }
+      
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return net.sf.mumble.MumbleProto.internal_static_MumbleProto_BanList_BanEntry_descriptor;
+      }
+      
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return net.sf.mumble.MumbleProto.internal_static_MumbleProto_BanList_BanEntry_fieldAccessorTable;
       }
       
       // required bytes address = 1;
@@ -5294,6 +6422,7 @@ public final class MumbleProto {
         if (hasDuration()) {
           output.writeUInt32(7, getDuration());
         }
+        getUnknownFields().writeTo(output);
       }
       
       private int memoizedSerializedSize = -1;
@@ -5330,6 +6459,7 @@ public final class MumbleProto {
           size += com.google.protobuf.CodedOutputStream
             .computeUInt32Size(7, getDuration());
         }
+        size += getUnknownFields().getSerializedSize();
         memoizedSerializedSize = size;
         return size;
       }
@@ -5409,8 +6539,7 @@ public final class MumbleProto {
       public Builder toBuilder() { return newBuilder(this); }
       
       public static final class Builder extends
-          com.google.protobuf.GeneratedMessageLite.Builder<
-            net.sf.mumble.MumbleProto.BanList.BanEntry, Builder> {
+          com.google.protobuf.GeneratedMessage.Builder<Builder> {
         private net.sf.mumble.MumbleProto.BanList.BanEntry result;
         
         // Construct using net.sf.mumble.MumbleProto.BanList.BanEntry.newBuilder()
@@ -5437,6 +6566,11 @@ public final class MumbleProto {
         
         public Builder clone() {
           return create().mergeFrom(result);
+        }
+        
+        public com.google.protobuf.Descriptors.Descriptor
+            getDescriptorForType() {
+          return net.sf.mumble.MumbleProto.BanList.BanEntry.getDescriptor();
         }
         
         public net.sf.mumble.MumbleProto.BanList.BanEntry getDefaultInstanceForType() {
@@ -5472,6 +6606,15 @@ public final class MumbleProto {
           return returnMe;
         }
         
+        public Builder mergeFrom(com.google.protobuf.Message other) {
+          if (other instanceof net.sf.mumble.MumbleProto.BanList.BanEntry) {
+            return mergeFrom((net.sf.mumble.MumbleProto.BanList.BanEntry)other);
+          } else {
+            super.mergeFrom(other);
+            return this;
+          }
+        }
+        
         public Builder mergeFrom(net.sf.mumble.MumbleProto.BanList.BanEntry other) {
           if (other == net.sf.mumble.MumbleProto.BanList.BanEntry.getDefaultInstance()) return this;
           if (other.hasAddress()) {
@@ -5495,6 +6638,7 @@ public final class MumbleProto {
           if (other.hasDuration()) {
             setDuration(other.getDuration());
           }
+          this.mergeUnknownFields(other.getUnknownFields());
           return this;
         }
         
@@ -5502,13 +6646,19 @@ public final class MumbleProto {
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws java.io.IOException {
+          com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+            com.google.protobuf.UnknownFieldSet.newBuilder(
+              this.getUnknownFields());
           while (true) {
             int tag = input.readTag();
             switch (tag) {
               case 0:
+                this.setUnknownFields(unknownFields.build());
                 return this;
               default: {
-                if (!parseUnknownField(input, extensionRegistry, tag)) {
+                if (!parseUnknownField(input, unknownFields,
+                                       extensionRegistry, tag)) {
+                  this.setUnknownFields(unknownFields.build());
                   return this;
                 }
                 break;
@@ -5736,6 +6886,7 @@ public final class MumbleProto {
       if (hasQuery()) {
         output.writeBool(2, getQuery());
       }
+      getUnknownFields().writeTo(output);
     }
     
     private int memoizedSerializedSize = -1;
@@ -5752,6 +6903,7 @@ public final class MumbleProto {
         size += com.google.protobuf.CodedOutputStream
           .computeBoolSize(2, getQuery());
       }
+      size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
       return size;
     }
@@ -5831,8 +6983,7 @@ public final class MumbleProto {
     public Builder toBuilder() { return newBuilder(this); }
     
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessageLite.Builder<
-          net.sf.mumble.MumbleProto.BanList, Builder> {
+        com.google.protobuf.GeneratedMessage.Builder<Builder> {
       private net.sf.mumble.MumbleProto.BanList result;
       
       // Construct using net.sf.mumble.MumbleProto.BanList.newBuilder()
@@ -5859,6 +7010,11 @@ public final class MumbleProto {
       
       public Builder clone() {
         return create().mergeFrom(result);
+      }
+      
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return net.sf.mumble.MumbleProto.BanList.getDescriptor();
       }
       
       public net.sf.mumble.MumbleProto.BanList getDefaultInstanceForType() {
@@ -5898,6 +7054,15 @@ public final class MumbleProto {
         return returnMe;
       }
       
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof net.sf.mumble.MumbleProto.BanList) {
+          return mergeFrom((net.sf.mumble.MumbleProto.BanList)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+      
       public Builder mergeFrom(net.sf.mumble.MumbleProto.BanList other) {
         if (other == net.sf.mumble.MumbleProto.BanList.getDefaultInstance()) return this;
         if (!other.bans_.isEmpty()) {
@@ -5909,6 +7074,7 @@ public final class MumbleProto {
         if (other.hasQuery()) {
           setQuery(other.getQuery());
         }
+        this.mergeUnknownFields(other.getUnknownFields());
         return this;
       }
       
@@ -5916,13 +7082,19 @@ public final class MumbleProto {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
+        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder(
+            this.getUnknownFields());
         while (true) {
           int tag = input.readTag();
           switch (tag) {
             case 0:
+              this.setUnknownFields(unknownFields.build());
               return this;
             default: {
-              if (!parseUnknownField(input, extensionRegistry, tag)) {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                this.setUnknownFields(unknownFields.build());
                 return this;
               }
               break;
@@ -6024,7 +7196,7 @@ public final class MumbleProto {
   }
   
   public static final class TextMessage extends
-      com.google.protobuf.GeneratedMessageLite {
+      com.google.protobuf.GeneratedMessage {
     // Use TextMessage.newBuilder() to construct.
     private TextMessage() {
       initFields();
@@ -6038,6 +7210,16 @@ public final class MumbleProto {
     
     public TextMessage getDefaultInstanceForType() {
       return defaultInstance;
+    }
+    
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return net.sf.mumble.MumbleProto.internal_static_MumbleProto_TextMessage_descriptor;
+    }
+    
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return net.sf.mumble.MumbleProto.internal_static_MumbleProto_TextMessage_fieldAccessorTable;
     }
     
     // optional uint32 actor = 1;
@@ -6115,6 +7297,7 @@ public final class MumbleProto {
       if (hasMessage()) {
         output.writeString(5, getMessage());
       }
+      getUnknownFields().writeTo(output);
     }
     
     private int memoizedSerializedSize = -1;
@@ -6158,6 +7341,7 @@ public final class MumbleProto {
         size += com.google.protobuf.CodedOutputStream
           .computeStringSize(5, getMessage());
       }
+      size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
       return size;
     }
@@ -6237,8 +7421,7 @@ public final class MumbleProto {
     public Builder toBuilder() { return newBuilder(this); }
     
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessageLite.Builder<
-          net.sf.mumble.MumbleProto.TextMessage, Builder> {
+        com.google.protobuf.GeneratedMessage.Builder<Builder> {
       private net.sf.mumble.MumbleProto.TextMessage result;
       
       // Construct using net.sf.mumble.MumbleProto.TextMessage.newBuilder()
@@ -6265,6 +7448,11 @@ public final class MumbleProto {
       
       public Builder clone() {
         return create().mergeFrom(result);
+      }
+      
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return net.sf.mumble.MumbleProto.TextMessage.getDescriptor();
       }
       
       public net.sf.mumble.MumbleProto.TextMessage getDefaultInstanceForType() {
@@ -6312,6 +7500,15 @@ public final class MumbleProto {
         return returnMe;
       }
       
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof net.sf.mumble.MumbleProto.TextMessage) {
+          return mergeFrom((net.sf.mumble.MumbleProto.TextMessage)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+      
       public Builder mergeFrom(net.sf.mumble.MumbleProto.TextMessage other) {
         if (other == net.sf.mumble.MumbleProto.TextMessage.getDefaultInstance()) return this;
         if (other.hasActor()) {
@@ -6338,6 +7535,7 @@ public final class MumbleProto {
         if (other.hasMessage()) {
           setMessage(other.getMessage());
         }
+        this.mergeUnknownFields(other.getUnknownFields());
         return this;
       }
       
@@ -6345,13 +7543,19 @@ public final class MumbleProto {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
+        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder(
+            this.getUnknownFields());
         while (true) {
           int tag = input.readTag();
           switch (tag) {
             case 0:
+              this.setUnknownFields(unknownFields.build());
               return this;
             default: {
-              if (!parseUnknownField(input, extensionRegistry, tag)) {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                this.setUnknownFields(unknownFields.build());
                 return this;
               }
               break;
@@ -6562,7 +7766,7 @@ public final class MumbleProto {
   }
   
   public static final class PermissionDenied extends
-      com.google.protobuf.GeneratedMessageLite {
+      com.google.protobuf.GeneratedMessage {
     // Use PermissionDenied.newBuilder() to construct.
     private PermissionDenied() {
       initFields();
@@ -6578,8 +7782,18 @@ public final class MumbleProto {
       return defaultInstance;
     }
     
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return net.sf.mumble.MumbleProto.internal_static_MumbleProto_PermissionDenied_descriptor;
+    }
+    
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return net.sf.mumble.MumbleProto.internal_static_MumbleProto_PermissionDenied_fieldAccessorTable;
+    }
+    
     public enum DenyType
-        implements com.google.protobuf.Internal.EnumLite {
+        implements com.google.protobuf.ProtocolMessageEnum {
       Text(0, 0),
       Permission(1, 1),
       SuperUser(2, 2),
@@ -6623,11 +7837,39 @@ public final class MumbleProto {
       ;        }
             };
       
+      public final com.google.protobuf.Descriptors.EnumValueDescriptor
+          getValueDescriptor() {
+        return getDescriptor().getValues().get(index);
+      }
+      public final com.google.protobuf.Descriptors.EnumDescriptor
+          getDescriptorForType() {
+        return getDescriptor();
+      }
+      public static final com.google.protobuf.Descriptors.EnumDescriptor
+          getDescriptor() {
+        return net.sf.mumble.MumbleProto.PermissionDenied.getDescriptor().getEnumTypes().get(0);
+      }
+      
+      private static final DenyType[] VALUES = {
+        Text, Permission, SuperUser, ChannelName, TextTooLong, H9K, TemporaryChannel, MissingCertificate, UserName, ChannelFull, 
+      };
+      public static DenyType valueOf(
+          com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+        if (desc.getType() != getDescriptor()) {
+          throw new java.lang.IllegalArgumentException(
+            "EnumValueDescriptor is not for this type.");
+        }
+        return VALUES[desc.getIndex()];
+      }
       private final int index;
       private final int value;
       private DenyType(int index, int value) {
         this.index = index;
         this.value = value;
+      }
+      
+      static {
+        net.sf.mumble.MumbleProto.getDescriptor();
       }
       
       // @@protoc_insertion_point(enum_scope:MumbleProto.PermissionDenied.DenyType)
@@ -6703,6 +7945,7 @@ public final class MumbleProto {
       if (hasName()) {
         output.writeString(6, getName());
       }
+      getUnknownFields().writeTo(output);
     }
     
     private int memoizedSerializedSize = -1;
@@ -6735,6 +7978,7 @@ public final class MumbleProto {
         size += com.google.protobuf.CodedOutputStream
           .computeStringSize(6, getName());
       }
+      size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
       return size;
     }
@@ -6814,8 +8058,7 @@ public final class MumbleProto {
     public Builder toBuilder() { return newBuilder(this); }
     
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessageLite.Builder<
-          net.sf.mumble.MumbleProto.PermissionDenied, Builder> {
+        com.google.protobuf.GeneratedMessage.Builder<Builder> {
       private net.sf.mumble.MumbleProto.PermissionDenied result;
       
       // Construct using net.sf.mumble.MumbleProto.PermissionDenied.newBuilder()
@@ -6842,6 +8085,11 @@ public final class MumbleProto {
       
       public Builder clone() {
         return create().mergeFrom(result);
+      }
+      
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return net.sf.mumble.MumbleProto.PermissionDenied.getDescriptor();
       }
       
       public net.sf.mumble.MumbleProto.PermissionDenied getDefaultInstanceForType() {
@@ -6877,6 +8125,15 @@ public final class MumbleProto {
         return returnMe;
       }
       
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof net.sf.mumble.MumbleProto.PermissionDenied) {
+          return mergeFrom((net.sf.mumble.MumbleProto.PermissionDenied)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+      
       public Builder mergeFrom(net.sf.mumble.MumbleProto.PermissionDenied other) {
         if (other == net.sf.mumble.MumbleProto.PermissionDenied.getDefaultInstance()) return this;
         if (other.hasPermission()) {
@@ -6897,6 +8154,7 @@ public final class MumbleProto {
         if (other.hasName()) {
           setName(other.getName());
         }
+        this.mergeUnknownFields(other.getUnknownFields());
         return this;
       }
       
@@ -6904,13 +8162,19 @@ public final class MumbleProto {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
+        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder(
+            this.getUnknownFields());
         while (true) {
           int tag = input.readTag();
           switch (tag) {
             case 0:
+              this.setUnknownFields(unknownFields.build());
               return this;
             default: {
-              if (!parseUnknownField(input, extensionRegistry, tag)) {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                this.setUnknownFields(unknownFields.build());
                 return this;
               }
               break;
@@ -6934,7 +8198,9 @@ public final class MumbleProto {
             case 40: {
               int rawValue = input.readEnum();
               net.sf.mumble.MumbleProto.PermissionDenied.DenyType value = net.sf.mumble.MumbleProto.PermissionDenied.DenyType.valueOf(rawValue);
-              if (value != null) {
+              if (value == null) {
+                unknownFields.mergeVarintField(5, rawValue);
+              } else {
                 setType(value);
               }
               break;
@@ -7078,7 +8344,7 @@ public final class MumbleProto {
   }
   
   public static final class ACL extends
-      com.google.protobuf.GeneratedMessageLite {
+      com.google.protobuf.GeneratedMessage {
     // Use ACL.newBuilder() to construct.
     private ACL() {
       initFields();
@@ -7094,8 +8360,18 @@ public final class MumbleProto {
       return defaultInstance;
     }
     
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return net.sf.mumble.MumbleProto.internal_static_MumbleProto_ACL_descriptor;
+    }
+    
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return net.sf.mumble.MumbleProto.internal_static_MumbleProto_ACL_fieldAccessorTable;
+    }
+    
     public static final class ChanGroup extends
-        com.google.protobuf.GeneratedMessageLite {
+        com.google.protobuf.GeneratedMessage {
       // Use ChanGroup.newBuilder() to construct.
       private ChanGroup() {
         initFields();
@@ -7109,6 +8385,16 @@ public final class MumbleProto {
       
       public ChanGroup getDefaultInstanceForType() {
         return defaultInstance;
+      }
+      
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return net.sf.mumble.MumbleProto.internal_static_MumbleProto_ACL_ChanGroup_descriptor;
+      }
+      
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return net.sf.mumble.MumbleProto.internal_static_MumbleProto_ACL_ChanGroup_fieldAccessorTable;
       }
       
       // required string name = 1;
@@ -7206,6 +8492,7 @@ public final class MumbleProto {
         for (int element : getInheritedMembersList()) {
           output.writeUInt32(7, element);
         }
+        getUnknownFields().writeTo(output);
       }
       
       private int memoizedSerializedSize = -1;
@@ -7257,6 +8544,7 @@ public final class MumbleProto {
           size += dataSize;
           size += 1 * getInheritedMembersList().size();
         }
+        size += getUnknownFields().getSerializedSize();
         memoizedSerializedSize = size;
         return size;
       }
@@ -7336,8 +8624,7 @@ public final class MumbleProto {
       public Builder toBuilder() { return newBuilder(this); }
       
       public static final class Builder extends
-          com.google.protobuf.GeneratedMessageLite.Builder<
-            net.sf.mumble.MumbleProto.ACL.ChanGroup, Builder> {
+          com.google.protobuf.GeneratedMessage.Builder<Builder> {
         private net.sf.mumble.MumbleProto.ACL.ChanGroup result;
         
         // Construct using net.sf.mumble.MumbleProto.ACL.ChanGroup.newBuilder()
@@ -7364,6 +8651,11 @@ public final class MumbleProto {
         
         public Builder clone() {
           return create().mergeFrom(result);
+        }
+        
+        public com.google.protobuf.Descriptors.Descriptor
+            getDescriptorForType() {
+          return net.sf.mumble.MumbleProto.ACL.ChanGroup.getDescriptor();
         }
         
         public net.sf.mumble.MumbleProto.ACL.ChanGroup getDefaultInstanceForType() {
@@ -7411,6 +8703,15 @@ public final class MumbleProto {
           return returnMe;
         }
         
+        public Builder mergeFrom(com.google.protobuf.Message other) {
+          if (other instanceof net.sf.mumble.MumbleProto.ACL.ChanGroup) {
+            return mergeFrom((net.sf.mumble.MumbleProto.ACL.ChanGroup)other);
+          } else {
+            super.mergeFrom(other);
+            return this;
+          }
+        }
+        
         public Builder mergeFrom(net.sf.mumble.MumbleProto.ACL.ChanGroup other) {
           if (other == net.sf.mumble.MumbleProto.ACL.ChanGroup.getDefaultInstance()) return this;
           if (other.hasName()) {
@@ -7443,6 +8744,7 @@ public final class MumbleProto {
             }
             result.inheritedMembers_.addAll(other.inheritedMembers_);
           }
+          this.mergeUnknownFields(other.getUnknownFields());
           return this;
         }
         
@@ -7450,13 +8752,19 @@ public final class MumbleProto {
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws java.io.IOException {
+          com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+            com.google.protobuf.UnknownFieldSet.newBuilder(
+              this.getUnknownFields());
           while (true) {
             int tag = input.readTag();
             switch (tag) {
               case 0:
+                this.setUnknownFields(unknownFields.build());
                 return this;
               default: {
-                if (!parseUnknownField(input, extensionRegistry, tag)) {
+                if (!parseUnknownField(input, unknownFields,
+                                       extensionRegistry, tag)) {
+                  this.setUnknownFields(unknownFields.build());
                   return this;
                 }
                 break;
@@ -7711,7 +9019,7 @@ public final class MumbleProto {
     }
     
     public static final class ChanACL extends
-        com.google.protobuf.GeneratedMessageLite {
+        com.google.protobuf.GeneratedMessage {
       // Use ChanACL.newBuilder() to construct.
       private ChanACL() {
         initFields();
@@ -7725,6 +9033,16 @@ public final class MumbleProto {
       
       public ChanACL getDefaultInstanceForType() {
         return defaultInstance;
+      }
+      
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return net.sf.mumble.MumbleProto.internal_static_MumbleProto_ACL_ChanACL_descriptor;
+      }
+      
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return net.sf.mumble.MumbleProto.internal_static_MumbleProto_ACL_ChanACL_fieldAccessorTable;
       }
       
       // optional bool apply_here = 1 [default = true];
@@ -7806,6 +9124,7 @@ public final class MumbleProto {
         if (hasDeny()) {
           output.writeUInt32(7, getDeny());
         }
+        getUnknownFields().writeTo(output);
       }
       
       private int memoizedSerializedSize = -1;
@@ -7842,6 +9161,7 @@ public final class MumbleProto {
           size += com.google.protobuf.CodedOutputStream
             .computeUInt32Size(7, getDeny());
         }
+        size += getUnknownFields().getSerializedSize();
         memoizedSerializedSize = size;
         return size;
       }
@@ -7921,8 +9241,7 @@ public final class MumbleProto {
       public Builder toBuilder() { return newBuilder(this); }
       
       public static final class Builder extends
-          com.google.protobuf.GeneratedMessageLite.Builder<
-            net.sf.mumble.MumbleProto.ACL.ChanACL, Builder> {
+          com.google.protobuf.GeneratedMessage.Builder<Builder> {
         private net.sf.mumble.MumbleProto.ACL.ChanACL result;
         
         // Construct using net.sf.mumble.MumbleProto.ACL.ChanACL.newBuilder()
@@ -7949,6 +9268,11 @@ public final class MumbleProto {
         
         public Builder clone() {
           return create().mergeFrom(result);
+        }
+        
+        public com.google.protobuf.Descriptors.Descriptor
+            getDescriptorForType() {
+          return net.sf.mumble.MumbleProto.ACL.ChanACL.getDescriptor();
         }
         
         public net.sf.mumble.MumbleProto.ACL.ChanACL getDefaultInstanceForType() {
@@ -7984,6 +9308,15 @@ public final class MumbleProto {
           return returnMe;
         }
         
+        public Builder mergeFrom(com.google.protobuf.Message other) {
+          if (other instanceof net.sf.mumble.MumbleProto.ACL.ChanACL) {
+            return mergeFrom((net.sf.mumble.MumbleProto.ACL.ChanACL)other);
+          } else {
+            super.mergeFrom(other);
+            return this;
+          }
+        }
+        
         public Builder mergeFrom(net.sf.mumble.MumbleProto.ACL.ChanACL other) {
           if (other == net.sf.mumble.MumbleProto.ACL.ChanACL.getDefaultInstance()) return this;
           if (other.hasApplyHere()) {
@@ -8007,6 +9340,7 @@ public final class MumbleProto {
           if (other.hasDeny()) {
             setDeny(other.getDeny());
           }
+          this.mergeUnknownFields(other.getUnknownFields());
           return this;
         }
         
@@ -8014,13 +9348,19 @@ public final class MumbleProto {
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws java.io.IOException {
+          com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+            com.google.protobuf.UnknownFieldSet.newBuilder(
+              this.getUnknownFields());
           while (true) {
             int tag = input.readTag();
             switch (tag) {
               case 0:
+                this.setUnknownFields(unknownFields.build());
                 return this;
               default: {
-                if (!parseUnknownField(input, extensionRegistry, tag)) {
+                if (!parseUnknownField(input, unknownFields,
+                                       extensionRegistry, tag)) {
+                  this.setUnknownFields(unknownFields.build());
                   return this;
                 }
                 break;
@@ -8272,6 +9612,7 @@ public final class MumbleProto {
       if (hasQuery()) {
         output.writeBool(5, getQuery());
       }
+      getUnknownFields().writeTo(output);
     }
     
     private int memoizedSerializedSize = -1;
@@ -8300,6 +9641,7 @@ public final class MumbleProto {
         size += com.google.protobuf.CodedOutputStream
           .computeBoolSize(5, getQuery());
       }
+      size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
       return size;
     }
@@ -8379,8 +9721,7 @@ public final class MumbleProto {
     public Builder toBuilder() { return newBuilder(this); }
     
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessageLite.Builder<
-          net.sf.mumble.MumbleProto.ACL, Builder> {
+        com.google.protobuf.GeneratedMessage.Builder<Builder> {
       private net.sf.mumble.MumbleProto.ACL result;
       
       // Construct using net.sf.mumble.MumbleProto.ACL.newBuilder()
@@ -8407,6 +9748,11 @@ public final class MumbleProto {
       
       public Builder clone() {
         return create().mergeFrom(result);
+      }
+      
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return net.sf.mumble.MumbleProto.ACL.getDescriptor();
       }
       
       public net.sf.mumble.MumbleProto.ACL getDefaultInstanceForType() {
@@ -8450,6 +9796,15 @@ public final class MumbleProto {
         return returnMe;
       }
       
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof net.sf.mumble.MumbleProto.ACL) {
+          return mergeFrom((net.sf.mumble.MumbleProto.ACL)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+      
       public Builder mergeFrom(net.sf.mumble.MumbleProto.ACL other) {
         if (other == net.sf.mumble.MumbleProto.ACL.getDefaultInstance()) return this;
         if (other.hasChannelId()) {
@@ -8473,6 +9828,7 @@ public final class MumbleProto {
         if (other.hasQuery()) {
           setQuery(other.getQuery());
         }
+        this.mergeUnknownFields(other.getUnknownFields());
         return this;
       }
       
@@ -8480,13 +9836,19 @@ public final class MumbleProto {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
+        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder(
+            this.getUnknownFields());
         while (true) {
           int tag = input.readTag();
           switch (tag) {
             case 0:
+              this.setUnknownFields(unknownFields.build());
               return this;
             default: {
-              if (!parseUnknownField(input, extensionRegistry, tag)) {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                this.setUnknownFields(unknownFields.build());
                 return this;
               }
               break;
@@ -8689,7 +10051,7 @@ public final class MumbleProto {
   }
   
   public static final class QueryUsers extends
-      com.google.protobuf.GeneratedMessageLite {
+      com.google.protobuf.GeneratedMessage {
     // Use QueryUsers.newBuilder() to construct.
     private QueryUsers() {
       initFields();
@@ -8703,6 +10065,16 @@ public final class MumbleProto {
     
     public QueryUsers getDefaultInstanceForType() {
       return defaultInstance;
+    }
+    
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return net.sf.mumble.MumbleProto.internal_static_MumbleProto_QueryUsers_descriptor;
+    }
+    
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return net.sf.mumble.MumbleProto.internal_static_MumbleProto_QueryUsers_fieldAccessorTable;
     }
     
     // repeated uint32 ids = 1;
@@ -8744,6 +10116,7 @@ public final class MumbleProto {
       for (java.lang.String element : getNamesList()) {
         output.writeString(2, element);
       }
+      getUnknownFields().writeTo(output);
     }
     
     private int memoizedSerializedSize = -1;
@@ -8770,6 +10143,7 @@ public final class MumbleProto {
         size += dataSize;
         size += 1 * getNamesList().size();
       }
+      size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
       return size;
     }
@@ -8849,8 +10223,7 @@ public final class MumbleProto {
     public Builder toBuilder() { return newBuilder(this); }
     
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessageLite.Builder<
-          net.sf.mumble.MumbleProto.QueryUsers, Builder> {
+        com.google.protobuf.GeneratedMessage.Builder<Builder> {
       private net.sf.mumble.MumbleProto.QueryUsers result;
       
       // Construct using net.sf.mumble.MumbleProto.QueryUsers.newBuilder()
@@ -8877,6 +10250,11 @@ public final class MumbleProto {
       
       public Builder clone() {
         return create().mergeFrom(result);
+      }
+      
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return net.sf.mumble.MumbleProto.QueryUsers.getDescriptor();
       }
       
       public net.sf.mumble.MumbleProto.QueryUsers getDefaultInstanceForType() {
@@ -8920,6 +10298,15 @@ public final class MumbleProto {
         return returnMe;
       }
       
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof net.sf.mumble.MumbleProto.QueryUsers) {
+          return mergeFrom((net.sf.mumble.MumbleProto.QueryUsers)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+      
       public Builder mergeFrom(net.sf.mumble.MumbleProto.QueryUsers other) {
         if (other == net.sf.mumble.MumbleProto.QueryUsers.getDefaultInstance()) return this;
         if (!other.ids_.isEmpty()) {
@@ -8934,6 +10321,7 @@ public final class MumbleProto {
           }
           result.names_.addAll(other.names_);
         }
+        this.mergeUnknownFields(other.getUnknownFields());
         return this;
       }
       
@@ -8941,13 +10329,19 @@ public final class MumbleProto {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
+        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder(
+            this.getUnknownFields());
         while (true) {
           int tag = input.readTag();
           switch (tag) {
             case 0:
+              this.setUnknownFields(unknownFields.build());
               return this;
             default: {
-              if (!parseUnknownField(input, extensionRegistry, tag)) {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                this.setUnknownFields(unknownFields.build());
                 return this;
               }
               break;
@@ -9061,7 +10455,7 @@ public final class MumbleProto {
   }
   
   public static final class CryptSetup extends
-      com.google.protobuf.GeneratedMessageLite {
+      com.google.protobuf.GeneratedMessage {
     // Use CryptSetup.newBuilder() to construct.
     private CryptSetup() {
       initFields();
@@ -9075,6 +10469,16 @@ public final class MumbleProto {
     
     public CryptSetup getDefaultInstanceForType() {
       return defaultInstance;
+    }
+    
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return net.sf.mumble.MumbleProto.internal_static_MumbleProto_CryptSetup_descriptor;
+    }
+    
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return net.sf.mumble.MumbleProto.internal_static_MumbleProto_CryptSetup_fieldAccessorTable;
     }
     
     // optional bytes key = 1;
@@ -9116,6 +10520,7 @@ public final class MumbleProto {
       if (hasServerNonce()) {
         output.writeBytes(3, getServerNonce());
       }
+      getUnknownFields().writeTo(output);
     }
     
     private int memoizedSerializedSize = -1;
@@ -9136,6 +10541,7 @@ public final class MumbleProto {
         size += com.google.protobuf.CodedOutputStream
           .computeBytesSize(3, getServerNonce());
       }
+      size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
       return size;
     }
@@ -9215,8 +10621,7 @@ public final class MumbleProto {
     public Builder toBuilder() { return newBuilder(this); }
     
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessageLite.Builder<
-          net.sf.mumble.MumbleProto.CryptSetup, Builder> {
+        com.google.protobuf.GeneratedMessage.Builder<Builder> {
       private net.sf.mumble.MumbleProto.CryptSetup result;
       
       // Construct using net.sf.mumble.MumbleProto.CryptSetup.newBuilder()
@@ -9243,6 +10648,11 @@ public final class MumbleProto {
       
       public Builder clone() {
         return create().mergeFrom(result);
+      }
+      
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return net.sf.mumble.MumbleProto.CryptSetup.getDescriptor();
       }
       
       public net.sf.mumble.MumbleProto.CryptSetup getDefaultInstanceForType() {
@@ -9278,6 +10688,15 @@ public final class MumbleProto {
         return returnMe;
       }
       
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof net.sf.mumble.MumbleProto.CryptSetup) {
+          return mergeFrom((net.sf.mumble.MumbleProto.CryptSetup)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+      
       public Builder mergeFrom(net.sf.mumble.MumbleProto.CryptSetup other) {
         if (other == net.sf.mumble.MumbleProto.CryptSetup.getDefaultInstance()) return this;
         if (other.hasKey()) {
@@ -9289,6 +10708,7 @@ public final class MumbleProto {
         if (other.hasServerNonce()) {
           setServerNonce(other.getServerNonce());
         }
+        this.mergeUnknownFields(other.getUnknownFields());
         return this;
       }
       
@@ -9296,13 +10716,19 @@ public final class MumbleProto {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
+        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder(
+            this.getUnknownFields());
         while (true) {
           int tag = input.readTag();
           switch (tag) {
             case 0:
+              this.setUnknownFields(unknownFields.build());
               return this;
             default: {
-              if (!parseUnknownField(input, extensionRegistry, tag)) {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                this.setUnknownFields(unknownFields.build());
                 return this;
               }
               break;
@@ -9400,7 +10826,7 @@ public final class MumbleProto {
   }
   
   public static final class ContextActionAdd extends
-      com.google.protobuf.GeneratedMessageLite {
+      com.google.protobuf.GeneratedMessage {
     // Use ContextActionAdd.newBuilder() to construct.
     private ContextActionAdd() {
       initFields();
@@ -9416,8 +10842,18 @@ public final class MumbleProto {
       return defaultInstance;
     }
     
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return net.sf.mumble.MumbleProto.internal_static_MumbleProto_ContextActionAdd_descriptor;
+    }
+    
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return net.sf.mumble.MumbleProto.internal_static_MumbleProto_ContextActionAdd_fieldAccessorTable;
+    }
+    
     public enum Context
-        implements com.google.protobuf.Internal.EnumLite {
+        implements com.google.protobuf.ProtocolMessageEnum {
       Server(0, 1),
       Channel(1, 2),
       User(2, 4),
@@ -9447,11 +10883,39 @@ public final class MumbleProto {
       ;        }
             };
       
+      public final com.google.protobuf.Descriptors.EnumValueDescriptor
+          getValueDescriptor() {
+        return getDescriptor().getValues().get(index);
+      }
+      public final com.google.protobuf.Descriptors.EnumDescriptor
+          getDescriptorForType() {
+        return getDescriptor();
+      }
+      public static final com.google.protobuf.Descriptors.EnumDescriptor
+          getDescriptor() {
+        return net.sf.mumble.MumbleProto.ContextActionAdd.getDescriptor().getEnumTypes().get(0);
+      }
+      
+      private static final Context[] VALUES = {
+        Server, Channel, User, 
+      };
+      public static Context valueOf(
+          com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+        if (desc.getType() != getDescriptor()) {
+          throw new java.lang.IllegalArgumentException(
+            "EnumValueDescriptor is not for this type.");
+        }
+        return VALUES[desc.getIndex()];
+      }
       private final int index;
       private final int value;
       private Context(int index, int value) {
         this.index = index;
         this.value = value;
+      }
+      
+      static {
+        net.sf.mumble.MumbleProto.getDescriptor();
       }
       
       // @@protoc_insertion_point(enum_scope:MumbleProto.ContextActionAdd.Context)
@@ -9498,6 +10962,7 @@ public final class MumbleProto {
       if (hasContext()) {
         output.writeUInt32(3, getContext());
       }
+      getUnknownFields().writeTo(output);
     }
     
     private int memoizedSerializedSize = -1;
@@ -9518,6 +10983,7 @@ public final class MumbleProto {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt32Size(3, getContext());
       }
+      size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
       return size;
     }
@@ -9597,8 +11063,7 @@ public final class MumbleProto {
     public Builder toBuilder() { return newBuilder(this); }
     
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessageLite.Builder<
-          net.sf.mumble.MumbleProto.ContextActionAdd, Builder> {
+        com.google.protobuf.GeneratedMessage.Builder<Builder> {
       private net.sf.mumble.MumbleProto.ContextActionAdd result;
       
       // Construct using net.sf.mumble.MumbleProto.ContextActionAdd.newBuilder()
@@ -9625,6 +11090,11 @@ public final class MumbleProto {
       
       public Builder clone() {
         return create().mergeFrom(result);
+      }
+      
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return net.sf.mumble.MumbleProto.ContextActionAdd.getDescriptor();
       }
       
       public net.sf.mumble.MumbleProto.ContextActionAdd getDefaultInstanceForType() {
@@ -9660,6 +11130,15 @@ public final class MumbleProto {
         return returnMe;
       }
       
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof net.sf.mumble.MumbleProto.ContextActionAdd) {
+          return mergeFrom((net.sf.mumble.MumbleProto.ContextActionAdd)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+      
       public Builder mergeFrom(net.sf.mumble.MumbleProto.ContextActionAdd other) {
         if (other == net.sf.mumble.MumbleProto.ContextActionAdd.getDefaultInstance()) return this;
         if (other.hasAction()) {
@@ -9671,6 +11150,7 @@ public final class MumbleProto {
         if (other.hasContext()) {
           setContext(other.getContext());
         }
+        this.mergeUnknownFields(other.getUnknownFields());
         return this;
       }
       
@@ -9678,13 +11158,19 @@ public final class MumbleProto {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
+        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder(
+            this.getUnknownFields());
         while (true) {
           int tag = input.readTag();
           switch (tag) {
             case 0:
+              this.setUnknownFields(unknownFields.build());
               return this;
             default: {
-              if (!parseUnknownField(input, extensionRegistry, tag)) {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                this.setUnknownFields(unknownFields.build());
                 return this;
               }
               break;
@@ -9779,7 +11265,7 @@ public final class MumbleProto {
   }
   
   public static final class ContextAction extends
-      com.google.protobuf.GeneratedMessageLite {
+      com.google.protobuf.GeneratedMessage {
     // Use ContextAction.newBuilder() to construct.
     private ContextAction() {
       initFields();
@@ -9793,6 +11279,16 @@ public final class MumbleProto {
     
     public ContextAction getDefaultInstanceForType() {
       return defaultInstance;
+    }
+    
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return net.sf.mumble.MumbleProto.internal_static_MumbleProto_ContextAction_descriptor;
+    }
+    
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return net.sf.mumble.MumbleProto.internal_static_MumbleProto_ContextAction_fieldAccessorTable;
     }
     
     // optional uint32 session = 1;
@@ -9835,6 +11331,7 @@ public final class MumbleProto {
       if (hasAction()) {
         output.writeString(3, getAction());
       }
+      getUnknownFields().writeTo(output);
     }
     
     private int memoizedSerializedSize = -1;
@@ -9855,6 +11352,7 @@ public final class MumbleProto {
         size += com.google.protobuf.CodedOutputStream
           .computeStringSize(3, getAction());
       }
+      size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
       return size;
     }
@@ -9934,8 +11432,7 @@ public final class MumbleProto {
     public Builder toBuilder() { return newBuilder(this); }
     
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessageLite.Builder<
-          net.sf.mumble.MumbleProto.ContextAction, Builder> {
+        com.google.protobuf.GeneratedMessage.Builder<Builder> {
       private net.sf.mumble.MumbleProto.ContextAction result;
       
       // Construct using net.sf.mumble.MumbleProto.ContextAction.newBuilder()
@@ -9962,6 +11459,11 @@ public final class MumbleProto {
       
       public Builder clone() {
         return create().mergeFrom(result);
+      }
+      
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return net.sf.mumble.MumbleProto.ContextAction.getDescriptor();
       }
       
       public net.sf.mumble.MumbleProto.ContextAction getDefaultInstanceForType() {
@@ -9997,6 +11499,15 @@ public final class MumbleProto {
         return returnMe;
       }
       
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof net.sf.mumble.MumbleProto.ContextAction) {
+          return mergeFrom((net.sf.mumble.MumbleProto.ContextAction)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+      
       public Builder mergeFrom(net.sf.mumble.MumbleProto.ContextAction other) {
         if (other == net.sf.mumble.MumbleProto.ContextAction.getDefaultInstance()) return this;
         if (other.hasSession()) {
@@ -10008,6 +11519,7 @@ public final class MumbleProto {
         if (other.hasAction()) {
           setAction(other.getAction());
         }
+        this.mergeUnknownFields(other.getUnknownFields());
         return this;
       }
       
@@ -10015,13 +11527,19 @@ public final class MumbleProto {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
+        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder(
+            this.getUnknownFields());
         while (true) {
           int tag = input.readTag();
           switch (tag) {
             case 0:
+              this.setUnknownFields(unknownFields.build());
               return this;
             default: {
-              if (!parseUnknownField(input, extensionRegistry, tag)) {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                this.setUnknownFields(unknownFields.build());
                 return this;
               }
               break;
@@ -10113,7 +11631,7 @@ public final class MumbleProto {
   }
   
   public static final class UserList extends
-      com.google.protobuf.GeneratedMessageLite {
+      com.google.protobuf.GeneratedMessage {
     // Use UserList.newBuilder() to construct.
     private UserList() {
       initFields();
@@ -10129,8 +11647,18 @@ public final class MumbleProto {
       return defaultInstance;
     }
     
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return net.sf.mumble.MumbleProto.internal_static_MumbleProto_UserList_descriptor;
+    }
+    
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return net.sf.mumble.MumbleProto.internal_static_MumbleProto_UserList_fieldAccessorTable;
+    }
+    
     public static final class User extends
-        com.google.protobuf.GeneratedMessageLite {
+        com.google.protobuf.GeneratedMessage {
       // Use User.newBuilder() to construct.
       private User() {
         initFields();
@@ -10144,6 +11672,16 @@ public final class MumbleProto {
       
       public User getDefaultInstanceForType() {
         return defaultInstance;
+      }
+      
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return net.sf.mumble.MumbleProto.internal_static_MumbleProto_UserList_User_descriptor;
+      }
+      
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return net.sf.mumble.MumbleProto.internal_static_MumbleProto_UserList_User_fieldAccessorTable;
       }
       
       // required uint32 user_id = 1;
@@ -10176,6 +11714,7 @@ public final class MumbleProto {
         if (hasName()) {
           output.writeString(2, getName());
         }
+        getUnknownFields().writeTo(output);
       }
       
       private int memoizedSerializedSize = -1;
@@ -10192,6 +11731,7 @@ public final class MumbleProto {
           size += com.google.protobuf.CodedOutputStream
             .computeStringSize(2, getName());
         }
+        size += getUnknownFields().getSerializedSize();
         memoizedSerializedSize = size;
         return size;
       }
@@ -10271,8 +11811,7 @@ public final class MumbleProto {
       public Builder toBuilder() { return newBuilder(this); }
       
       public static final class Builder extends
-          com.google.protobuf.GeneratedMessageLite.Builder<
-            net.sf.mumble.MumbleProto.UserList.User, Builder> {
+          com.google.protobuf.GeneratedMessage.Builder<Builder> {
         private net.sf.mumble.MumbleProto.UserList.User result;
         
         // Construct using net.sf.mumble.MumbleProto.UserList.User.newBuilder()
@@ -10299,6 +11838,11 @@ public final class MumbleProto {
         
         public Builder clone() {
           return create().mergeFrom(result);
+        }
+        
+        public com.google.protobuf.Descriptors.Descriptor
+            getDescriptorForType() {
+          return net.sf.mumble.MumbleProto.UserList.User.getDescriptor();
         }
         
         public net.sf.mumble.MumbleProto.UserList.User getDefaultInstanceForType() {
@@ -10334,6 +11878,15 @@ public final class MumbleProto {
           return returnMe;
         }
         
+        public Builder mergeFrom(com.google.protobuf.Message other) {
+          if (other instanceof net.sf.mumble.MumbleProto.UserList.User) {
+            return mergeFrom((net.sf.mumble.MumbleProto.UserList.User)other);
+          } else {
+            super.mergeFrom(other);
+            return this;
+          }
+        }
+        
         public Builder mergeFrom(net.sf.mumble.MumbleProto.UserList.User other) {
           if (other == net.sf.mumble.MumbleProto.UserList.User.getDefaultInstance()) return this;
           if (other.hasUserId()) {
@@ -10342,6 +11895,7 @@ public final class MumbleProto {
           if (other.hasName()) {
             setName(other.getName());
           }
+          this.mergeUnknownFields(other.getUnknownFields());
           return this;
         }
         
@@ -10349,13 +11903,19 @@ public final class MumbleProto {
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws java.io.IOException {
+          com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+            com.google.protobuf.UnknownFieldSet.newBuilder(
+              this.getUnknownFields());
           while (true) {
             int tag = input.readTag();
             switch (tag) {
               case 0:
+                this.setUnknownFields(unknownFields.build());
                 return this;
               default: {
-                if (!parseUnknownField(input, extensionRegistry, tag)) {
+                if (!parseUnknownField(input, unknownFields,
+                                       extensionRegistry, tag)) {
+                  this.setUnknownFields(unknownFields.build());
                   return this;
                 }
                 break;
@@ -10451,6 +12011,7 @@ public final class MumbleProto {
       for (net.sf.mumble.MumbleProto.UserList.User element : getUsersList()) {
         output.writeMessage(1, element);
       }
+      getUnknownFields().writeTo(output);
     }
     
     private int memoizedSerializedSize = -1;
@@ -10463,6 +12024,7 @@ public final class MumbleProto {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, element);
       }
+      size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
       return size;
     }
@@ -10542,8 +12104,7 @@ public final class MumbleProto {
     public Builder toBuilder() { return newBuilder(this); }
     
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessageLite.Builder<
-          net.sf.mumble.MumbleProto.UserList, Builder> {
+        com.google.protobuf.GeneratedMessage.Builder<Builder> {
       private net.sf.mumble.MumbleProto.UserList result;
       
       // Construct using net.sf.mumble.MumbleProto.UserList.newBuilder()
@@ -10570,6 +12131,11 @@ public final class MumbleProto {
       
       public Builder clone() {
         return create().mergeFrom(result);
+      }
+      
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return net.sf.mumble.MumbleProto.UserList.getDescriptor();
       }
       
       public net.sf.mumble.MumbleProto.UserList getDefaultInstanceForType() {
@@ -10609,6 +12175,15 @@ public final class MumbleProto {
         return returnMe;
       }
       
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof net.sf.mumble.MumbleProto.UserList) {
+          return mergeFrom((net.sf.mumble.MumbleProto.UserList)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+      
       public Builder mergeFrom(net.sf.mumble.MumbleProto.UserList other) {
         if (other == net.sf.mumble.MumbleProto.UserList.getDefaultInstance()) return this;
         if (!other.users_.isEmpty()) {
@@ -10617,6 +12192,7 @@ public final class MumbleProto {
           }
           result.users_.addAll(other.users_);
         }
+        this.mergeUnknownFields(other.getUnknownFields());
         return this;
       }
       
@@ -10624,13 +12200,19 @@ public final class MumbleProto {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
+        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder(
+            this.getUnknownFields());
         while (true) {
           int tag = input.readTag();
           switch (tag) {
             case 0:
+              this.setUnknownFields(unknownFields.build());
               return this;
             default: {
-              if (!parseUnknownField(input, extensionRegistry, tag)) {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                this.setUnknownFields(unknownFields.build());
                 return this;
               }
               break;
@@ -10710,7 +12292,7 @@ public final class MumbleProto {
   }
   
   public static final class VoiceTarget extends
-      com.google.protobuf.GeneratedMessageLite {
+      com.google.protobuf.GeneratedMessage {
     // Use VoiceTarget.newBuilder() to construct.
     private VoiceTarget() {
       initFields();
@@ -10726,8 +12308,18 @@ public final class MumbleProto {
       return defaultInstance;
     }
     
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return net.sf.mumble.MumbleProto.internal_static_MumbleProto_VoiceTarget_descriptor;
+    }
+    
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return net.sf.mumble.MumbleProto.internal_static_MumbleProto_VoiceTarget_fieldAccessorTable;
+    }
+    
     public static final class Target extends
-        com.google.protobuf.GeneratedMessageLite {
+        com.google.protobuf.GeneratedMessage {
       // Use Target.newBuilder() to construct.
       private Target() {
         initFields();
@@ -10741,6 +12333,16 @@ public final class MumbleProto {
       
       public Target getDefaultInstanceForType() {
         return defaultInstance;
+      }
+      
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return net.sf.mumble.MumbleProto.internal_static_MumbleProto_VoiceTarget_Target_descriptor;
+      }
+      
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return net.sf.mumble.MumbleProto.internal_static_MumbleProto_VoiceTarget_Target_fieldAccessorTable;
       }
       
       // repeated uint32 session = 1;
@@ -10807,6 +12409,7 @@ public final class MumbleProto {
         if (hasChildren()) {
           output.writeBool(5, getChildren());
         }
+        getUnknownFields().writeTo(output);
       }
       
       private int memoizedSerializedSize = -1;
@@ -10840,6 +12443,7 @@ public final class MumbleProto {
           size += com.google.protobuf.CodedOutputStream
             .computeBoolSize(5, getChildren());
         }
+        size += getUnknownFields().getSerializedSize();
         memoizedSerializedSize = size;
         return size;
       }
@@ -10919,8 +12523,7 @@ public final class MumbleProto {
       public Builder toBuilder() { return newBuilder(this); }
       
       public static final class Builder extends
-          com.google.protobuf.GeneratedMessageLite.Builder<
-            net.sf.mumble.MumbleProto.VoiceTarget.Target, Builder> {
+          com.google.protobuf.GeneratedMessage.Builder<Builder> {
         private net.sf.mumble.MumbleProto.VoiceTarget.Target result;
         
         // Construct using net.sf.mumble.MumbleProto.VoiceTarget.Target.newBuilder()
@@ -10947,6 +12550,11 @@ public final class MumbleProto {
         
         public Builder clone() {
           return create().mergeFrom(result);
+        }
+        
+        public com.google.protobuf.Descriptors.Descriptor
+            getDescriptorForType() {
+          return net.sf.mumble.MumbleProto.VoiceTarget.Target.getDescriptor();
         }
         
         public net.sf.mumble.MumbleProto.VoiceTarget.Target getDefaultInstanceForType() {
@@ -10986,6 +12594,15 @@ public final class MumbleProto {
           return returnMe;
         }
         
+        public Builder mergeFrom(com.google.protobuf.Message other) {
+          if (other instanceof net.sf.mumble.MumbleProto.VoiceTarget.Target) {
+            return mergeFrom((net.sf.mumble.MumbleProto.VoiceTarget.Target)other);
+          } else {
+            super.mergeFrom(other);
+            return this;
+          }
+        }
+        
         public Builder mergeFrom(net.sf.mumble.MumbleProto.VoiceTarget.Target other) {
           if (other == net.sf.mumble.MumbleProto.VoiceTarget.Target.getDefaultInstance()) return this;
           if (!other.session_.isEmpty()) {
@@ -11006,6 +12623,7 @@ public final class MumbleProto {
           if (other.hasChildren()) {
             setChildren(other.getChildren());
           }
+          this.mergeUnknownFields(other.getUnknownFields());
           return this;
         }
         
@@ -11013,13 +12631,19 @@ public final class MumbleProto {
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws java.io.IOException {
+          com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+            com.google.protobuf.UnknownFieldSet.newBuilder(
+              this.getUnknownFields());
           while (true) {
             int tag = input.readTag();
             switch (tag) {
               case 0:
+                this.setUnknownFields(unknownFields.build());
                 return this;
               default: {
-                if (!parseUnknownField(input, extensionRegistry, tag)) {
+                if (!parseUnknownField(input, unknownFields,
+                                       extensionRegistry, tag)) {
+                  this.setUnknownFields(unknownFields.build());
                   return this;
                 }
                 break;
@@ -11213,6 +12837,7 @@ public final class MumbleProto {
       for (net.sf.mumble.MumbleProto.VoiceTarget.Target element : getTargetsList()) {
         output.writeMessage(2, element);
       }
+      getUnknownFields().writeTo(output);
     }
     
     private int memoizedSerializedSize = -1;
@@ -11229,6 +12854,7 @@ public final class MumbleProto {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(2, element);
       }
+      size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
       return size;
     }
@@ -11308,8 +12934,7 @@ public final class MumbleProto {
     public Builder toBuilder() { return newBuilder(this); }
     
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessageLite.Builder<
-          net.sf.mumble.MumbleProto.VoiceTarget, Builder> {
+        com.google.protobuf.GeneratedMessage.Builder<Builder> {
       private net.sf.mumble.MumbleProto.VoiceTarget result;
       
       // Construct using net.sf.mumble.MumbleProto.VoiceTarget.newBuilder()
@@ -11336,6 +12961,11 @@ public final class MumbleProto {
       
       public Builder clone() {
         return create().mergeFrom(result);
+      }
+      
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return net.sf.mumble.MumbleProto.VoiceTarget.getDescriptor();
       }
       
       public net.sf.mumble.MumbleProto.VoiceTarget getDefaultInstanceForType() {
@@ -11375,6 +13005,15 @@ public final class MumbleProto {
         return returnMe;
       }
       
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof net.sf.mumble.MumbleProto.VoiceTarget) {
+          return mergeFrom((net.sf.mumble.MumbleProto.VoiceTarget)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+      
       public Builder mergeFrom(net.sf.mumble.MumbleProto.VoiceTarget other) {
         if (other == net.sf.mumble.MumbleProto.VoiceTarget.getDefaultInstance()) return this;
         if (other.hasId()) {
@@ -11386,6 +13025,7 @@ public final class MumbleProto {
           }
           result.targets_.addAll(other.targets_);
         }
+        this.mergeUnknownFields(other.getUnknownFields());
         return this;
       }
       
@@ -11393,13 +13033,19 @@ public final class MumbleProto {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
+        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder(
+            this.getUnknownFields());
         while (true) {
           int tag = input.readTag();
           switch (tag) {
             case 0:
+              this.setUnknownFields(unknownFields.build());
               return this;
             default: {
-              if (!parseUnknownField(input, extensionRegistry, tag)) {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                this.setUnknownFields(unknownFields.build());
                 return this;
               }
               break;
@@ -11501,7 +13147,7 @@ public final class MumbleProto {
   }
   
   public static final class PermissionQuery extends
-      com.google.protobuf.GeneratedMessageLite {
+      com.google.protobuf.GeneratedMessage {
     // Use PermissionQuery.newBuilder() to construct.
     private PermissionQuery() {
       initFields();
@@ -11515,6 +13161,16 @@ public final class MumbleProto {
     
     public PermissionQuery getDefaultInstanceForType() {
       return defaultInstance;
+    }
+    
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return net.sf.mumble.MumbleProto.internal_static_MumbleProto_PermissionQuery_descriptor;
+    }
+    
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return net.sf.mumble.MumbleProto.internal_static_MumbleProto_PermissionQuery_fieldAccessorTable;
     }
     
     // optional uint32 channel_id = 1;
@@ -11556,6 +13212,7 @@ public final class MumbleProto {
       if (hasFlush()) {
         output.writeBool(3, getFlush());
       }
+      getUnknownFields().writeTo(output);
     }
     
     private int memoizedSerializedSize = -1;
@@ -11576,6 +13233,7 @@ public final class MumbleProto {
         size += com.google.protobuf.CodedOutputStream
           .computeBoolSize(3, getFlush());
       }
+      size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
       return size;
     }
@@ -11655,8 +13313,7 @@ public final class MumbleProto {
     public Builder toBuilder() { return newBuilder(this); }
     
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessageLite.Builder<
-          net.sf.mumble.MumbleProto.PermissionQuery, Builder> {
+        com.google.protobuf.GeneratedMessage.Builder<Builder> {
       private net.sf.mumble.MumbleProto.PermissionQuery result;
       
       // Construct using net.sf.mumble.MumbleProto.PermissionQuery.newBuilder()
@@ -11683,6 +13340,11 @@ public final class MumbleProto {
       
       public Builder clone() {
         return create().mergeFrom(result);
+      }
+      
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return net.sf.mumble.MumbleProto.PermissionQuery.getDescriptor();
       }
       
       public net.sf.mumble.MumbleProto.PermissionQuery getDefaultInstanceForType() {
@@ -11718,6 +13380,15 @@ public final class MumbleProto {
         return returnMe;
       }
       
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof net.sf.mumble.MumbleProto.PermissionQuery) {
+          return mergeFrom((net.sf.mumble.MumbleProto.PermissionQuery)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+      
       public Builder mergeFrom(net.sf.mumble.MumbleProto.PermissionQuery other) {
         if (other == net.sf.mumble.MumbleProto.PermissionQuery.getDefaultInstance()) return this;
         if (other.hasChannelId()) {
@@ -11729,6 +13400,7 @@ public final class MumbleProto {
         if (other.hasFlush()) {
           setFlush(other.getFlush());
         }
+        this.mergeUnknownFields(other.getUnknownFields());
         return this;
       }
       
@@ -11736,13 +13408,19 @@ public final class MumbleProto {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
+        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder(
+            this.getUnknownFields());
         while (true) {
           int tag = input.readTag();
           switch (tag) {
             case 0:
+              this.setUnknownFields(unknownFields.build());
               return this;
             default: {
-              if (!parseUnknownField(input, extensionRegistry, tag)) {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                this.setUnknownFields(unknownFields.build());
                 return this;
               }
               break;
@@ -11831,7 +13509,7 @@ public final class MumbleProto {
   }
   
   public static final class CodecVersion extends
-      com.google.protobuf.GeneratedMessageLite {
+      com.google.protobuf.GeneratedMessage {
     // Use CodecVersion.newBuilder() to construct.
     private CodecVersion() {
       initFields();
@@ -11845,6 +13523,16 @@ public final class MumbleProto {
     
     public CodecVersion getDefaultInstanceForType() {
       return defaultInstance;
+    }
+    
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return net.sf.mumble.MumbleProto.internal_static_MumbleProto_CodecVersion_descriptor;
+    }
+    
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return net.sf.mumble.MumbleProto.internal_static_MumbleProto_CodecVersion_fieldAccessorTable;
     }
     
     // required int32 alpha = 1;
@@ -11889,6 +13577,7 @@ public final class MumbleProto {
       if (hasPreferAlpha()) {
         output.writeBool(3, getPreferAlpha());
       }
+      getUnknownFields().writeTo(output);
     }
     
     private int memoizedSerializedSize = -1;
@@ -11909,6 +13598,7 @@ public final class MumbleProto {
         size += com.google.protobuf.CodedOutputStream
           .computeBoolSize(3, getPreferAlpha());
       }
+      size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
       return size;
     }
@@ -11988,8 +13678,7 @@ public final class MumbleProto {
     public Builder toBuilder() { return newBuilder(this); }
     
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessageLite.Builder<
-          net.sf.mumble.MumbleProto.CodecVersion, Builder> {
+        com.google.protobuf.GeneratedMessage.Builder<Builder> {
       private net.sf.mumble.MumbleProto.CodecVersion result;
       
       // Construct using net.sf.mumble.MumbleProto.CodecVersion.newBuilder()
@@ -12016,6 +13705,11 @@ public final class MumbleProto {
       
       public Builder clone() {
         return create().mergeFrom(result);
+      }
+      
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return net.sf.mumble.MumbleProto.CodecVersion.getDescriptor();
       }
       
       public net.sf.mumble.MumbleProto.CodecVersion getDefaultInstanceForType() {
@@ -12051,6 +13745,15 @@ public final class MumbleProto {
         return returnMe;
       }
       
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof net.sf.mumble.MumbleProto.CodecVersion) {
+          return mergeFrom((net.sf.mumble.MumbleProto.CodecVersion)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+      
       public Builder mergeFrom(net.sf.mumble.MumbleProto.CodecVersion other) {
         if (other == net.sf.mumble.MumbleProto.CodecVersion.getDefaultInstance()) return this;
         if (other.hasAlpha()) {
@@ -12062,6 +13765,7 @@ public final class MumbleProto {
         if (other.hasPreferAlpha()) {
           setPreferAlpha(other.getPreferAlpha());
         }
+        this.mergeUnknownFields(other.getUnknownFields());
         return this;
       }
       
@@ -12069,13 +13773,19 @@ public final class MumbleProto {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
+        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder(
+            this.getUnknownFields());
         while (true) {
           int tag = input.readTag();
           switch (tag) {
             case 0:
+              this.setUnknownFields(unknownFields.build());
               return this;
             default: {
-              if (!parseUnknownField(input, extensionRegistry, tag)) {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                this.setUnknownFields(unknownFields.build());
                 return this;
               }
               break;
@@ -12164,7 +13874,7 @@ public final class MumbleProto {
   }
   
   public static final class UserStats extends
-      com.google.protobuf.GeneratedMessageLite {
+      com.google.protobuf.GeneratedMessage {
     // Use UserStats.newBuilder() to construct.
     private UserStats() {
       initFields();
@@ -12180,8 +13890,18 @@ public final class MumbleProto {
       return defaultInstance;
     }
     
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return net.sf.mumble.MumbleProto.internal_static_MumbleProto_UserStats_descriptor;
+    }
+    
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return net.sf.mumble.MumbleProto.internal_static_MumbleProto_UserStats_fieldAccessorTable;
+    }
+    
     public static final class Stats extends
-        com.google.protobuf.GeneratedMessageLite {
+        com.google.protobuf.GeneratedMessage {
       // Use Stats.newBuilder() to construct.
       private Stats() {
         initFields();
@@ -12195,6 +13915,16 @@ public final class MumbleProto {
       
       public Stats getDefaultInstanceForType() {
         return defaultInstance;
+      }
+      
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return net.sf.mumble.MumbleProto.internal_static_MumbleProto_UserStats_Stats_descriptor;
+      }
+      
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return net.sf.mumble.MumbleProto.internal_static_MumbleProto_UserStats_Stats_fieldAccessorTable;
       }
       
       // optional uint32 good = 1;
@@ -12246,6 +13976,7 @@ public final class MumbleProto {
         if (hasResync()) {
           output.writeUInt32(4, getResync());
         }
+        getUnknownFields().writeTo(output);
       }
       
       private int memoizedSerializedSize = -1;
@@ -12270,6 +14001,7 @@ public final class MumbleProto {
           size += com.google.protobuf.CodedOutputStream
             .computeUInt32Size(4, getResync());
         }
+        size += getUnknownFields().getSerializedSize();
         memoizedSerializedSize = size;
         return size;
       }
@@ -12349,8 +14081,7 @@ public final class MumbleProto {
       public Builder toBuilder() { return newBuilder(this); }
       
       public static final class Builder extends
-          com.google.protobuf.GeneratedMessageLite.Builder<
-            net.sf.mumble.MumbleProto.UserStats.Stats, Builder> {
+          com.google.protobuf.GeneratedMessage.Builder<Builder> {
         private net.sf.mumble.MumbleProto.UserStats.Stats result;
         
         // Construct using net.sf.mumble.MumbleProto.UserStats.Stats.newBuilder()
@@ -12377,6 +14108,11 @@ public final class MumbleProto {
         
         public Builder clone() {
           return create().mergeFrom(result);
+        }
+        
+        public com.google.protobuf.Descriptors.Descriptor
+            getDescriptorForType() {
+          return net.sf.mumble.MumbleProto.UserStats.Stats.getDescriptor();
         }
         
         public net.sf.mumble.MumbleProto.UserStats.Stats getDefaultInstanceForType() {
@@ -12412,6 +14148,15 @@ public final class MumbleProto {
           return returnMe;
         }
         
+        public Builder mergeFrom(com.google.protobuf.Message other) {
+          if (other instanceof net.sf.mumble.MumbleProto.UserStats.Stats) {
+            return mergeFrom((net.sf.mumble.MumbleProto.UserStats.Stats)other);
+          } else {
+            super.mergeFrom(other);
+            return this;
+          }
+        }
+        
         public Builder mergeFrom(net.sf.mumble.MumbleProto.UserStats.Stats other) {
           if (other == net.sf.mumble.MumbleProto.UserStats.Stats.getDefaultInstance()) return this;
           if (other.hasGood()) {
@@ -12426,6 +14171,7 @@ public final class MumbleProto {
           if (other.hasResync()) {
             setResync(other.getResync());
           }
+          this.mergeUnknownFields(other.getUnknownFields());
           return this;
         }
         
@@ -12433,13 +14179,19 @@ public final class MumbleProto {
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws java.io.IOException {
+          com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+            com.google.protobuf.UnknownFieldSet.newBuilder(
+              this.getUnknownFields());
           while (true) {
             int tag = input.readTag();
             switch (tag) {
               case 0:
+                this.setUnknownFields(unknownFields.build());
                 return this;
               default: {
-                if (!parseUnknownField(input, extensionRegistry, tag)) {
+                if (!parseUnknownField(input, unknownFields,
+                                       extensionRegistry, tag)) {
+                  this.setUnknownFields(unknownFields.build());
                   return this;
                 }
                 break;
@@ -12751,6 +14503,7 @@ public final class MumbleProto {
       if (hasStrongCertificate()) {
         output.writeBool(18, getStrongCertificate());
       }
+      getUnknownFields().writeTo(output);
     }
     
     private int memoizedSerializedSize = -1;
@@ -12841,6 +14594,7 @@ public final class MumbleProto {
         size += com.google.protobuf.CodedOutputStream
           .computeBoolSize(18, getStrongCertificate());
       }
+      size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
       return size;
     }
@@ -12920,8 +14674,7 @@ public final class MumbleProto {
     public Builder toBuilder() { return newBuilder(this); }
     
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessageLite.Builder<
-          net.sf.mumble.MumbleProto.UserStats, Builder> {
+        com.google.protobuf.GeneratedMessage.Builder<Builder> {
       private net.sf.mumble.MumbleProto.UserStats result;
       
       // Construct using net.sf.mumble.MumbleProto.UserStats.newBuilder()
@@ -12948,6 +14701,11 @@ public final class MumbleProto {
       
       public Builder clone() {
         return create().mergeFrom(result);
+      }
+      
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return net.sf.mumble.MumbleProto.UserStats.getDescriptor();
       }
       
       public net.sf.mumble.MumbleProto.UserStats getDefaultInstanceForType() {
@@ -12989,6 +14747,15 @@ public final class MumbleProto {
         net.sf.mumble.MumbleProto.UserStats returnMe = result;
         result = null;
         return returnMe;
+      }
+      
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof net.sf.mumble.MumbleProto.UserStats) {
+          return mergeFrom((net.sf.mumble.MumbleProto.UserStats)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
       }
       
       public Builder mergeFrom(net.sf.mumble.MumbleProto.UserStats other) {
@@ -13053,6 +14820,7 @@ public final class MumbleProto {
         if (other.hasStrongCertificate()) {
           setStrongCertificate(other.getStrongCertificate());
         }
+        this.mergeUnknownFields(other.getUnknownFields());
         return this;
       }
       
@@ -13060,13 +14828,19 @@ public final class MumbleProto {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
+        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder(
+            this.getUnknownFields());
         while (true) {
           int tag = input.readTag();
           switch (tag) {
             case 0:
+              this.setUnknownFields(unknownFields.build());
               return this;
             default: {
-              if (!parseUnknownField(input, extensionRegistry, tag)) {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                this.setUnknownFields(unknownFields.build());
                 return this;
               }
               break;
@@ -13607,7 +15381,7 @@ public final class MumbleProto {
   }
   
   public static final class RequestBlob extends
-      com.google.protobuf.GeneratedMessageLite {
+      com.google.protobuf.GeneratedMessage {
     // Use RequestBlob.newBuilder() to construct.
     private RequestBlob() {
       initFields();
@@ -13621,6 +15395,16 @@ public final class MumbleProto {
     
     public RequestBlob getDefaultInstanceForType() {
       return defaultInstance;
+    }
+    
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return net.sf.mumble.MumbleProto.internal_static_MumbleProto_RequestBlob_descriptor;
+    }
+    
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return net.sf.mumble.MumbleProto.internal_static_MumbleProto_RequestBlob_fieldAccessorTable;
     }
     
     // repeated uint32 session_texture = 1;
@@ -13677,6 +15461,7 @@ public final class MumbleProto {
       for (int element : getChannelDescriptionList()) {
         output.writeUInt32(3, element);
       }
+      getUnknownFields().writeTo(output);
     }
     
     private int memoizedSerializedSize = -1;
@@ -13712,6 +15497,7 @@ public final class MumbleProto {
         size += dataSize;
         size += 1 * getChannelDescriptionList().size();
       }
+      size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
       return size;
     }
@@ -13791,8 +15577,7 @@ public final class MumbleProto {
     public Builder toBuilder() { return newBuilder(this); }
     
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessageLite.Builder<
-          net.sf.mumble.MumbleProto.RequestBlob, Builder> {
+        com.google.protobuf.GeneratedMessage.Builder<Builder> {
       private net.sf.mumble.MumbleProto.RequestBlob result;
       
       // Construct using net.sf.mumble.MumbleProto.RequestBlob.newBuilder()
@@ -13819,6 +15604,11 @@ public final class MumbleProto {
       
       public Builder clone() {
         return create().mergeFrom(result);
+      }
+      
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return net.sf.mumble.MumbleProto.RequestBlob.getDescriptor();
       }
       
       public net.sf.mumble.MumbleProto.RequestBlob getDefaultInstanceForType() {
@@ -13866,6 +15656,15 @@ public final class MumbleProto {
         return returnMe;
       }
       
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof net.sf.mumble.MumbleProto.RequestBlob) {
+          return mergeFrom((net.sf.mumble.MumbleProto.RequestBlob)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+      
       public Builder mergeFrom(net.sf.mumble.MumbleProto.RequestBlob other) {
         if (other == net.sf.mumble.MumbleProto.RequestBlob.getDefaultInstance()) return this;
         if (!other.sessionTexture_.isEmpty()) {
@@ -13886,6 +15685,7 @@ public final class MumbleProto {
           }
           result.channelDescription_.addAll(other.channelDescription_);
         }
+        this.mergeUnknownFields(other.getUnknownFields());
         return this;
       }
       
@@ -13893,13 +15693,19 @@ public final class MumbleProto {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
+        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder(
+            this.getUnknownFields());
         while (true) {
           int tag = input.readTag();
           switch (tag) {
             case 0:
+              this.setUnknownFields(unknownFields.build());
               return this;
             default: {
-              if (!parseUnknownField(input, extensionRegistry, tag)) {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                this.setUnknownFields(unknownFields.build());
                 return this;
               }
               break;
@@ -14062,8 +15868,543 @@ public final class MumbleProto {
     // @@protoc_insertion_point(class_scope:MumbleProto.RequestBlob)
   }
   
+  private static com.google.protobuf.Descriptors.Descriptor
+    internal_static_MumbleProto_Version_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_MumbleProto_Version_fieldAccessorTable;
+  private static com.google.protobuf.Descriptors.Descriptor
+    internal_static_MumbleProto_UDPTunnel_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_MumbleProto_UDPTunnel_fieldAccessorTable;
+  private static com.google.protobuf.Descriptors.Descriptor
+    internal_static_MumbleProto_Authenticate_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_MumbleProto_Authenticate_fieldAccessorTable;
+  private static com.google.protobuf.Descriptors.Descriptor
+    internal_static_MumbleProto_Ping_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_MumbleProto_Ping_fieldAccessorTable;
+  private static com.google.protobuf.Descriptors.Descriptor
+    internal_static_MumbleProto_Reject_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_MumbleProto_Reject_fieldAccessorTable;
+  private static com.google.protobuf.Descriptors.Descriptor
+    internal_static_MumbleProto_ServerConfig_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_MumbleProto_ServerConfig_fieldAccessorTable;
+  private static com.google.protobuf.Descriptors.Descriptor
+    internal_static_MumbleProto_ServerSync_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_MumbleProto_ServerSync_fieldAccessorTable;
+  private static com.google.protobuf.Descriptors.Descriptor
+    internal_static_MumbleProto_ChannelRemove_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_MumbleProto_ChannelRemove_fieldAccessorTable;
+  private static com.google.protobuf.Descriptors.Descriptor
+    internal_static_MumbleProto_ChannelState_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_MumbleProto_ChannelState_fieldAccessorTable;
+  private static com.google.protobuf.Descriptors.Descriptor
+    internal_static_MumbleProto_UserRemove_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_MumbleProto_UserRemove_fieldAccessorTable;
+  private static com.google.protobuf.Descriptors.Descriptor
+    internal_static_MumbleProto_UserState_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_MumbleProto_UserState_fieldAccessorTable;
+  private static com.google.protobuf.Descriptors.Descriptor
+    internal_static_MumbleProto_BanList_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_MumbleProto_BanList_fieldAccessorTable;
+  private static com.google.protobuf.Descriptors.Descriptor
+    internal_static_MumbleProto_BanList_BanEntry_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_MumbleProto_BanList_BanEntry_fieldAccessorTable;
+  private static com.google.protobuf.Descriptors.Descriptor
+    internal_static_MumbleProto_TextMessage_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_MumbleProto_TextMessage_fieldAccessorTable;
+  private static com.google.protobuf.Descriptors.Descriptor
+    internal_static_MumbleProto_PermissionDenied_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_MumbleProto_PermissionDenied_fieldAccessorTable;
+  private static com.google.protobuf.Descriptors.Descriptor
+    internal_static_MumbleProto_ACL_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_MumbleProto_ACL_fieldAccessorTable;
+  private static com.google.protobuf.Descriptors.Descriptor
+    internal_static_MumbleProto_ACL_ChanGroup_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_MumbleProto_ACL_ChanGroup_fieldAccessorTable;
+  private static com.google.protobuf.Descriptors.Descriptor
+    internal_static_MumbleProto_ACL_ChanACL_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_MumbleProto_ACL_ChanACL_fieldAccessorTable;
+  private static com.google.protobuf.Descriptors.Descriptor
+    internal_static_MumbleProto_QueryUsers_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_MumbleProto_QueryUsers_fieldAccessorTable;
+  private static com.google.protobuf.Descriptors.Descriptor
+    internal_static_MumbleProto_CryptSetup_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_MumbleProto_CryptSetup_fieldAccessorTable;
+  private static com.google.protobuf.Descriptors.Descriptor
+    internal_static_MumbleProto_ContextActionAdd_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_MumbleProto_ContextActionAdd_fieldAccessorTable;
+  private static com.google.protobuf.Descriptors.Descriptor
+    internal_static_MumbleProto_ContextAction_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_MumbleProto_ContextAction_fieldAccessorTable;
+  private static com.google.protobuf.Descriptors.Descriptor
+    internal_static_MumbleProto_UserList_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_MumbleProto_UserList_fieldAccessorTable;
+  private static com.google.protobuf.Descriptors.Descriptor
+    internal_static_MumbleProto_UserList_User_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_MumbleProto_UserList_User_fieldAccessorTable;
+  private static com.google.protobuf.Descriptors.Descriptor
+    internal_static_MumbleProto_VoiceTarget_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_MumbleProto_VoiceTarget_fieldAccessorTable;
+  private static com.google.protobuf.Descriptors.Descriptor
+    internal_static_MumbleProto_VoiceTarget_Target_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_MumbleProto_VoiceTarget_Target_fieldAccessorTable;
+  private static com.google.protobuf.Descriptors.Descriptor
+    internal_static_MumbleProto_PermissionQuery_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_MumbleProto_PermissionQuery_fieldAccessorTable;
+  private static com.google.protobuf.Descriptors.Descriptor
+    internal_static_MumbleProto_CodecVersion_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_MumbleProto_CodecVersion_fieldAccessorTable;
+  private static com.google.protobuf.Descriptors.Descriptor
+    internal_static_MumbleProto_UserStats_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_MumbleProto_UserStats_fieldAccessorTable;
+  private static com.google.protobuf.Descriptors.Descriptor
+    internal_static_MumbleProto_UserStats_Stats_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_MumbleProto_UserStats_Stats_fieldAccessorTable;
+  private static com.google.protobuf.Descriptors.Descriptor
+    internal_static_MumbleProto_RequestBlob_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_MumbleProto_RequestBlob_fieldAccessorTable;
   
+  public static com.google.protobuf.Descriptors.FileDescriptor
+      getDescriptor() {
+    return descriptor;
+  }
+  private static com.google.protobuf.Descriptors.FileDescriptor
+      descriptor;
   static {
+    java.lang.String[] descriptorData = {
+      "\n\014Mumble.proto\022\013MumbleProto\"K\n\007Version\022\017" +
+      "\n\007version\030\001 \001(\r\022\017\n\007release\030\002 \001(\t\022\n\n\002os\030\003" +
+      " \001(\t\022\022\n\nos_version\030\004 \001(\t\"\033\n\tUDPTunnel\022\016\n" +
+      "\006packet\030\001 \002(\014\"Y\n\014Authenticate\022\020\n\010usernam" +
+      "e\030\001 \001(\t\022\020\n\010password\030\002 \001(\t\022\016\n\006tokens\030\003 \003(" +
+      "\t\022\025\n\rcelt_versions\030\004 \003(\005\"\325\001\n\004Ping\022\021\n\ttim" +
+      "estamp\030\001 \001(\004\022\014\n\004good\030\002 \001(\r\022\014\n\004late\030\003 \001(\r" +
+      "\022\014\n\004lost\030\004 \001(\r\022\016\n\006resync\030\005 \001(\r\022\023\n\013udp_pa" +
+      "ckets\030\006 \001(\r\022\023\n\013tcp_packets\030\007 \001(\r\022\024\n\014udp_" +
+      "ping_avg\030\010 \001(\002\022\024\n\014udp_ping_var\030\t \001(\002\022\024\n\014",
+      "tcp_ping_avg\030\n \001(\002\022\024\n\014tcp_ping_var\030\013 \001(\002" +
+      "\"\340\001\n\006Reject\022,\n\004type\030\001 \001(\0162\036.MumbleProto." +
+      "Reject.RejectType\022\016\n\006reason\030\002 \001(\t\"\227\001\n\nRe" +
+      "jectType\022\010\n\004None\020\000\022\020\n\014WrongVersion\020\001\022\023\n\017" +
+      "InvalidUsername\020\002\022\017\n\013WrongUserPW\020\003\022\021\n\rWr" +
+      "ongServerPW\020\004\022\021\n\rUsernameInUse\020\005\022\016\n\nServ" +
+      "erFull\020\006\022\021\n\rNoCertificate\020\007\"\213\004\n\014ServerCo" +
+      "nfig\022\025\n\rmax_bandwidth\030\001 \001(\r\022\024\n\014welcome_t" +
+      "ext\030\002 \001(\t\022\022\n\nallow_html\030\003 \001(\010\022\026\n\016message" +
+      "_length\030\004 \001(\r\022\034\n\024image_message_length\030\005 ",
+      "\001(\r\022\016\n\005query\030\350\007 \001(\010\022\027\n\016serverpassword\030\351\007" +
+      " \001(\t\022\027\n\016defaultchannel\030\352\007 \001(\r\022\022\n\tbandwid" +
+      "th\030\353\007 \001(\005\022\016\n\005users\030\354\007 \001(\005\022\024\n\013channelname" +
+      "\030\355\007 \001(\t\022\021\n\010username\030\356\007 \001(\t\022\032\n\021textmessag" +
+      "elength\030\357\007 \001(\r\022\033\n\022imagemessagelength\030\360\007 " +
+      "\001(\r\022\022\n\tallowhtml\030\361\007 \001(\010\022\025\n\014registername\030" +
+      "\362\007 \001(\t\022\031\n\020registerpassword\030\363\007 \001(\t\022\024\n\013reg" +
+      "isterurl\030\364\007 \001(\t\022\031\n\020registerhostname\030\365\007 \001" +
+      "(\t\022\025\n\014certrequired\030\366\007 \001(\010\022\030\n\017remembercha" +
+      "nnel\030\367\007 \001(\010\022\024\n\013welcometext\030\370\007 \001(\t\"_\n\nSer",
+      "verSync\022\017\n\007session\030\001 \001(\r\022\025\n\rmax_bandwidt" +
+      "h\030\002 \001(\r\022\024\n\014welcome_text\030\003 \001(\t\022\023\n\013permiss" +
+      "ions\030\004 \001(\004\"#\n\rChannelRemove\022\022\n\nchannel_i" +
+      "d\030\001 \002(\r\"\326\001\n\014ChannelState\022\022\n\nchannel_id\030\001" +
+      " \001(\r\022\016\n\006parent\030\002 \001(\r\022\014\n\004name\030\003 \001(\t\022\r\n\005li" +
+      "nks\030\004 \003(\r\022\023\n\013description\030\005 \001(\t\022\021\n\tlinks_" +
+      "add\030\006 \003(\r\022\024\n\014links_remove\030\007 \003(\r\022\030\n\ttempo" +
+      "rary\030\010 \001(\010:\005false\022\023\n\010position\030\t \001(\005:\0010\022\030" +
+      "\n\020description_hash\030\n \001(\014\"I\n\nUserRemove\022\017" +
+      "\n\007session\030\001 \002(\r\022\r\n\005actor\030\002 \001(\r\022\016\n\006reason",
+      "\030\003 \001(\t\022\013\n\003ban\030\004 \001(\010\"\354\002\n\tUserState\022\017\n\007ses" +
+      "sion\030\001 \001(\r\022\r\n\005actor\030\002 \001(\r\022\014\n\004name\030\003 \001(\t\022" +
+      "\017\n\007user_id\030\004 \001(\r\022\022\n\nchannel_id\030\005 \001(\r\022\014\n\004" +
+      "mute\030\006 \001(\010\022\014\n\004deaf\030\007 \001(\010\022\020\n\010suppress\030\010 \001" +
+      "(\010\022\021\n\tself_mute\030\t \001(\010\022\021\n\tself_deaf\030\n \001(\010" +
+      "\022\017\n\007texture\030\013 \001(\014\022\026\n\016plugin_context\030\014 \001(" +
+      "\014\022\027\n\017plugin_identity\030\r \001(\t\022\017\n\007comment\030\016 " +
+      "\001(\t\022\014\n\004hash\030\017 \001(\t\022\024\n\014comment_hash\030\020 \001(\014\022" +
+      "\024\n\014texture_hash\030\021 \001(\014\022\030\n\020priority_speake" +
+      "r\030\022 \001(\010\022\021\n\trecording\030\023 \001(\010\"\304\001\n\007BanList\022+",
+      "\n\004bans\030\001 \003(\0132\035.MumbleProto.BanList.BanEn" +
+      "try\022\024\n\005query\030\002 \001(\010:\005false\032v\n\010BanEntry\022\017\n" +
+      "\007address\030\001 \002(\014\022\014\n\004mask\030\002 \002(\r\022\014\n\004name\030\003 \001" +
+      "(\t\022\014\n\004hash\030\004 \001(\t\022\016\n\006reason\030\005 \001(\t\022\r\n\005star" +
+      "t\030\006 \001(\t\022\020\n\010duration\030\007 \001(\r\"c\n\013TextMessage" +
+      "\022\r\n\005actor\030\001 \001(\r\022\017\n\007session\030\002 \003(\r\022\022\n\nchan" +
+      "nel_id\030\003 \003(\r\022\017\n\007tree_id\030\004 \003(\r\022\017\n\007message" +
+      "\030\005 \002(\t\"\315\002\n\020PermissionDenied\022\022\n\npermissio" +
+      "n\030\001 \001(\r\022\022\n\nchannel_id\030\002 \001(\r\022\017\n\007session\030\003" +
+      " \001(\r\022\016\n\006reason\030\004 \001(\t\0224\n\004type\030\005 \001(\0162&.Mum",
+      "bleProto.PermissionDenied.DenyType\022\014\n\004na" +
+      "me\030\006 \001(\t\"\253\001\n\010DenyType\022\010\n\004Text\020\000\022\016\n\nPermi" +
+      "ssion\020\001\022\r\n\tSuperUser\020\002\022\017\n\013ChannelName\020\003\022" +
+      "\017\n\013TextTooLong\020\004\022\007\n\003H9K\020\005\022\024\n\020TemporaryCh" +
+      "annel\020\006\022\026\n\022MissingCertificate\020\007\022\014\n\010UserN" +
+      "ame\020\010\022\017\n\013ChannelFull\020\t\"\324\003\n\003ACL\022\022\n\nchanne" +
+      "l_id\030\001 \002(\r\022\032\n\014inherit_acls\030\002 \001(\010:\004true\022*" +
+      "\n\006groups\030\003 \003(\0132\032.MumbleProto.ACL.ChanGro" +
+      "up\022&\n\004acls\030\004 \003(\0132\030.MumbleProto.ACL.ChanA" +
+      "CL\022\024\n\005query\030\005 \001(\010:\005false\032\234\001\n\tChanGroup\022\014",
+      "\n\004name\030\001 \002(\t\022\027\n\tinherited\030\002 \001(\010:\004true\022\025\n" +
+      "\007inherit\030\003 \001(\010:\004true\022\031\n\013inheritable\030\004 \001(" +
+      "\010:\004true\022\013\n\003add\030\005 \003(\r\022\016\n\006remove\030\006 \003(\r\022\031\n\021" +
+      "inherited_members\030\007 \003(\r\032\223\001\n\007ChanACL\022\030\n\na" +
+      "pply_here\030\001 \001(\010:\004true\022\030\n\napply_subs\030\002 \001(" +
+      "\010:\004true\022\027\n\tinherited\030\003 \001(\010:\004true\022\017\n\007user" +
+      "_id\030\004 \001(\r\022\r\n\005group\030\005 \001(\t\022\r\n\005grant\030\006 \001(\r\022" +
+      "\014\n\004deny\030\007 \001(\r\"(\n\nQueryUsers\022\013\n\003ids\030\001 \003(\r" +
+      "\022\r\n\005names\030\002 \003(\t\"E\n\nCryptSetup\022\013\n\003key\030\001 \001" +
+      "(\014\022\024\n\014client_nonce\030\002 \001(\014\022\024\n\014server_nonce",
+      "\030\003 \001(\014\"o\n\020ContextActionAdd\022\016\n\006action\030\001 \002" +
+      "(\t\022\014\n\004text\030\002 \002(\t\022\017\n\007context\030\003 \001(\r\",\n\007Con" +
+      "text\022\n\n\006Server\020\001\022\013\n\007Channel\020\002\022\010\n\004User\020\004\"" +
+      "D\n\rContextAction\022\017\n\007session\030\001 \001(\r\022\022\n\ncha" +
+      "nnel_id\030\002 \001(\r\022\016\n\006action\030\003 \002(\t\"\\\n\010UserLis" +
+      "t\022)\n\005users\030\001 \003(\0132\032.MumbleProto.UserList." +
+      "User\032%\n\004User\022\017\n\007user_id\030\001 \002(\r\022\014\n\004name\030\002 " +
+      "\001(\t\"\270\001\n\013VoiceTarget\022\n\n\002id\030\001 \001(\r\0220\n\007targe" +
+      "ts\030\002 \003(\0132\037.MumbleProto.VoiceTarget.Targe" +
+      "t\032k\n\006Target\022\017\n\007session\030\001 \003(\r\022\022\n\nchannel_",
+      "id\030\002 \001(\r\022\r\n\005group\030\003 \001(\t\022\024\n\005links\030\004 \001(\010:\005" +
+      "false\022\027\n\010children\030\005 \001(\010:\005false\"P\n\017Permis" +
+      "sionQuery\022\022\n\nchannel_id\030\001 \001(\r\022\023\n\013permiss" +
+      "ions\030\002 \001(\r\022\024\n\005flush\030\003 \001(\010:\005false\"G\n\014Code" +
+      "cVersion\022\r\n\005alpha\030\001 \002(\005\022\014\n\004beta\030\002 \002(\005\022\032\n" +
+      "\014prefer_alpha\030\003 \002(\010:\004true\"\243\004\n\tUserStats\022" +
+      "\017\n\007session\030\001 \001(\r\022\031\n\nstats_only\030\002 \001(\010:\005fa" +
+      "lse\022\024\n\014certificates\030\003 \003(\014\0221\n\013from_client" +
+      "\030\004 \001(\0132\034.MumbleProto.UserStats.Stats\0221\n\013" +
+      "from_server\030\005 \001(\0132\034.MumbleProto.UserStat",
+      "s.Stats\022\023\n\013udp_packets\030\006 \001(\r\022\023\n\013tcp_pack" +
+      "ets\030\007 \001(\r\022\024\n\014udp_ping_avg\030\010 \001(\002\022\024\n\014udp_p" +
+      "ing_var\030\t \001(\002\022\024\n\014tcp_ping_avg\030\n \001(\002\022\024\n\014t" +
+      "cp_ping_var\030\013 \001(\002\022%\n\007version\030\014 \001(\0132\024.Mum" +
+      "bleProto.Version\022\025\n\rcelt_versions\030\r \003(\005\022" +
+      "\017\n\007address\030\016 \001(\014\022\021\n\tbandwidth\030\017 \001(\r\022\022\n\no" +
+      "nlinesecs\030\020 \001(\r\022\020\n\010idlesecs\030\021 \001(\r\022!\n\022str" +
+      "ong_certificate\030\022 \001(\010:\005false\032A\n\005Stats\022\014\n" +
+      "\004good\030\001 \001(\r\022\014\n\004late\030\002 \001(\r\022\014\n\004lost\030\003 \001(\r\022" +
+      "\016\n\006resync\030\004 \001(\r\"\\\n\013RequestBlob\022\027\n\017sessio",
+      "n_texture\030\001 \003(\r\022\027\n\017session_comment\030\002 \003(\r" +
+      "\022\033\n\023channel_description\030\003 \003(\rB\002H\001"
+    };
+    com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
+      new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
+        public com.google.protobuf.ExtensionRegistry assignDescriptors(
+            com.google.protobuf.Descriptors.FileDescriptor root) {
+          descriptor = root;
+          internal_static_MumbleProto_Version_descriptor =
+            getDescriptor().getMessageTypes().get(0);
+          internal_static_MumbleProto_Version_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_MumbleProto_Version_descriptor,
+              new java.lang.String[] { "Version", "Release", "Os", "OsVersion", },
+              net.sf.mumble.MumbleProto.Version.class,
+              net.sf.mumble.MumbleProto.Version.Builder.class);
+          internal_static_MumbleProto_UDPTunnel_descriptor =
+            getDescriptor().getMessageTypes().get(1);
+          internal_static_MumbleProto_UDPTunnel_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_MumbleProto_UDPTunnel_descriptor,
+              new java.lang.String[] { "Packet", },
+              net.sf.mumble.MumbleProto.UDPTunnel.class,
+              net.sf.mumble.MumbleProto.UDPTunnel.Builder.class);
+          internal_static_MumbleProto_Authenticate_descriptor =
+            getDescriptor().getMessageTypes().get(2);
+          internal_static_MumbleProto_Authenticate_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_MumbleProto_Authenticate_descriptor,
+              new java.lang.String[] { "Username", "Password", "Tokens", "CeltVersions", },
+              net.sf.mumble.MumbleProto.Authenticate.class,
+              net.sf.mumble.MumbleProto.Authenticate.Builder.class);
+          internal_static_MumbleProto_Ping_descriptor =
+            getDescriptor().getMessageTypes().get(3);
+          internal_static_MumbleProto_Ping_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_MumbleProto_Ping_descriptor,
+              new java.lang.String[] { "Timestamp", "Good", "Late", "Lost", "Resync", "UdpPackets", "TcpPackets", "UdpPingAvg", "UdpPingVar", "TcpPingAvg", "TcpPingVar", },
+              net.sf.mumble.MumbleProto.Ping.class,
+              net.sf.mumble.MumbleProto.Ping.Builder.class);
+          internal_static_MumbleProto_Reject_descriptor =
+            getDescriptor().getMessageTypes().get(4);
+          internal_static_MumbleProto_Reject_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_MumbleProto_Reject_descriptor,
+              new java.lang.String[] { "Type", "Reason", },
+              net.sf.mumble.MumbleProto.Reject.class,
+              net.sf.mumble.MumbleProto.Reject.Builder.class);
+          internal_static_MumbleProto_ServerConfig_descriptor =
+            getDescriptor().getMessageTypes().get(5);
+          internal_static_MumbleProto_ServerConfig_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_MumbleProto_ServerConfig_descriptor,
+              new java.lang.String[] { "MaxBandwidth", "WelcomeText", "AllowHtml", "MessageLength", "ImageMessageLength", "Query", "Serverpassword", "Defaultchannel", "Bandwidth", "Users", "Channelname", "Username", "Textmessagelength", "Imagemessagelength", "Allowhtml", "Registername", "Registerpassword", "Registerurl", "Registerhostname", "Certrequired", "Rememberchannel", "Welcometext", },
+              net.sf.mumble.MumbleProto.ServerConfig.class,
+              net.sf.mumble.MumbleProto.ServerConfig.Builder.class);
+          internal_static_MumbleProto_ServerSync_descriptor =
+            getDescriptor().getMessageTypes().get(6);
+          internal_static_MumbleProto_ServerSync_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_MumbleProto_ServerSync_descriptor,
+              new java.lang.String[] { "Session", "MaxBandwidth", "WelcomeText", "Permissions", },
+              net.sf.mumble.MumbleProto.ServerSync.class,
+              net.sf.mumble.MumbleProto.ServerSync.Builder.class);
+          internal_static_MumbleProto_ChannelRemove_descriptor =
+            getDescriptor().getMessageTypes().get(7);
+          internal_static_MumbleProto_ChannelRemove_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_MumbleProto_ChannelRemove_descriptor,
+              new java.lang.String[] { "ChannelId", },
+              net.sf.mumble.MumbleProto.ChannelRemove.class,
+              net.sf.mumble.MumbleProto.ChannelRemove.Builder.class);
+          internal_static_MumbleProto_ChannelState_descriptor =
+            getDescriptor().getMessageTypes().get(8);
+          internal_static_MumbleProto_ChannelState_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_MumbleProto_ChannelState_descriptor,
+              new java.lang.String[] { "ChannelId", "Parent", "Name", "Links", "Description", "LinksAdd", "LinksRemove", "Temporary", "Position", "DescriptionHash", },
+              net.sf.mumble.MumbleProto.ChannelState.class,
+              net.sf.mumble.MumbleProto.ChannelState.Builder.class);
+          internal_static_MumbleProto_UserRemove_descriptor =
+            getDescriptor().getMessageTypes().get(9);
+          internal_static_MumbleProto_UserRemove_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_MumbleProto_UserRemove_descriptor,
+              new java.lang.String[] { "Session", "Actor", "Reason", "Ban", },
+              net.sf.mumble.MumbleProto.UserRemove.class,
+              net.sf.mumble.MumbleProto.UserRemove.Builder.class);
+          internal_static_MumbleProto_UserState_descriptor =
+            getDescriptor().getMessageTypes().get(10);
+          internal_static_MumbleProto_UserState_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_MumbleProto_UserState_descriptor,
+              new java.lang.String[] { "Session", "Actor", "Name", "UserId", "ChannelId", "Mute", "Deaf", "Suppress", "SelfMute", "SelfDeaf", "Texture", "PluginContext", "PluginIdentity", "Comment", "Hash", "CommentHash", "TextureHash", "PrioritySpeaker", "Recording", },
+              net.sf.mumble.MumbleProto.UserState.class,
+              net.sf.mumble.MumbleProto.UserState.Builder.class);
+          internal_static_MumbleProto_BanList_descriptor =
+            getDescriptor().getMessageTypes().get(11);
+          internal_static_MumbleProto_BanList_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_MumbleProto_BanList_descriptor,
+              new java.lang.String[] { "Bans", "Query", },
+              net.sf.mumble.MumbleProto.BanList.class,
+              net.sf.mumble.MumbleProto.BanList.Builder.class);
+          internal_static_MumbleProto_BanList_BanEntry_descriptor =
+            internal_static_MumbleProto_BanList_descriptor.getNestedTypes().get(0);
+          internal_static_MumbleProto_BanList_BanEntry_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_MumbleProto_BanList_BanEntry_descriptor,
+              new java.lang.String[] { "Address", "Mask", "Name", "Hash", "Reason", "Start", "Duration", },
+              net.sf.mumble.MumbleProto.BanList.BanEntry.class,
+              net.sf.mumble.MumbleProto.BanList.BanEntry.Builder.class);
+          internal_static_MumbleProto_TextMessage_descriptor =
+            getDescriptor().getMessageTypes().get(12);
+          internal_static_MumbleProto_TextMessage_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_MumbleProto_TextMessage_descriptor,
+              new java.lang.String[] { "Actor", "Session", "ChannelId", "TreeId", "Message", },
+              net.sf.mumble.MumbleProto.TextMessage.class,
+              net.sf.mumble.MumbleProto.TextMessage.Builder.class);
+          internal_static_MumbleProto_PermissionDenied_descriptor =
+            getDescriptor().getMessageTypes().get(13);
+          internal_static_MumbleProto_PermissionDenied_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_MumbleProto_PermissionDenied_descriptor,
+              new java.lang.String[] { "Permission", "ChannelId", "Session", "Reason", "Type", "Name", },
+              net.sf.mumble.MumbleProto.PermissionDenied.class,
+              net.sf.mumble.MumbleProto.PermissionDenied.Builder.class);
+          internal_static_MumbleProto_ACL_descriptor =
+            getDescriptor().getMessageTypes().get(14);
+          internal_static_MumbleProto_ACL_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_MumbleProto_ACL_descriptor,
+              new java.lang.String[] { "ChannelId", "InheritAcls", "Groups", "Acls", "Query", },
+              net.sf.mumble.MumbleProto.ACL.class,
+              net.sf.mumble.MumbleProto.ACL.Builder.class);
+          internal_static_MumbleProto_ACL_ChanGroup_descriptor =
+            internal_static_MumbleProto_ACL_descriptor.getNestedTypes().get(0);
+          internal_static_MumbleProto_ACL_ChanGroup_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_MumbleProto_ACL_ChanGroup_descriptor,
+              new java.lang.String[] { "Name", "Inherited", "Inherit", "Inheritable", "Add", "Remove", "InheritedMembers", },
+              net.sf.mumble.MumbleProto.ACL.ChanGroup.class,
+              net.sf.mumble.MumbleProto.ACL.ChanGroup.Builder.class);
+          internal_static_MumbleProto_ACL_ChanACL_descriptor =
+            internal_static_MumbleProto_ACL_descriptor.getNestedTypes().get(1);
+          internal_static_MumbleProto_ACL_ChanACL_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_MumbleProto_ACL_ChanACL_descriptor,
+              new java.lang.String[] { "ApplyHere", "ApplySubs", "Inherited", "UserId", "Group", "Grant", "Deny", },
+              net.sf.mumble.MumbleProto.ACL.ChanACL.class,
+              net.sf.mumble.MumbleProto.ACL.ChanACL.Builder.class);
+          internal_static_MumbleProto_QueryUsers_descriptor =
+            getDescriptor().getMessageTypes().get(15);
+          internal_static_MumbleProto_QueryUsers_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_MumbleProto_QueryUsers_descriptor,
+              new java.lang.String[] { "Ids", "Names", },
+              net.sf.mumble.MumbleProto.QueryUsers.class,
+              net.sf.mumble.MumbleProto.QueryUsers.Builder.class);
+          internal_static_MumbleProto_CryptSetup_descriptor =
+            getDescriptor().getMessageTypes().get(16);
+          internal_static_MumbleProto_CryptSetup_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_MumbleProto_CryptSetup_descriptor,
+              new java.lang.String[] { "Key", "ClientNonce", "ServerNonce", },
+              net.sf.mumble.MumbleProto.CryptSetup.class,
+              net.sf.mumble.MumbleProto.CryptSetup.Builder.class);
+          internal_static_MumbleProto_ContextActionAdd_descriptor =
+            getDescriptor().getMessageTypes().get(17);
+          internal_static_MumbleProto_ContextActionAdd_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_MumbleProto_ContextActionAdd_descriptor,
+              new java.lang.String[] { "Action", "Text", "Context", },
+              net.sf.mumble.MumbleProto.ContextActionAdd.class,
+              net.sf.mumble.MumbleProto.ContextActionAdd.Builder.class);
+          internal_static_MumbleProto_ContextAction_descriptor =
+            getDescriptor().getMessageTypes().get(18);
+          internal_static_MumbleProto_ContextAction_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_MumbleProto_ContextAction_descriptor,
+              new java.lang.String[] { "Session", "ChannelId", "Action", },
+              net.sf.mumble.MumbleProto.ContextAction.class,
+              net.sf.mumble.MumbleProto.ContextAction.Builder.class);
+          internal_static_MumbleProto_UserList_descriptor =
+            getDescriptor().getMessageTypes().get(19);
+          internal_static_MumbleProto_UserList_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_MumbleProto_UserList_descriptor,
+              new java.lang.String[] { "Users", },
+              net.sf.mumble.MumbleProto.UserList.class,
+              net.sf.mumble.MumbleProto.UserList.Builder.class);
+          internal_static_MumbleProto_UserList_User_descriptor =
+            internal_static_MumbleProto_UserList_descriptor.getNestedTypes().get(0);
+          internal_static_MumbleProto_UserList_User_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_MumbleProto_UserList_User_descriptor,
+              new java.lang.String[] { "UserId", "Name", },
+              net.sf.mumble.MumbleProto.UserList.User.class,
+              net.sf.mumble.MumbleProto.UserList.User.Builder.class);
+          internal_static_MumbleProto_VoiceTarget_descriptor =
+            getDescriptor().getMessageTypes().get(20);
+          internal_static_MumbleProto_VoiceTarget_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_MumbleProto_VoiceTarget_descriptor,
+              new java.lang.String[] { "Id", "Targets", },
+              net.sf.mumble.MumbleProto.VoiceTarget.class,
+              net.sf.mumble.MumbleProto.VoiceTarget.Builder.class);
+          internal_static_MumbleProto_VoiceTarget_Target_descriptor =
+            internal_static_MumbleProto_VoiceTarget_descriptor.getNestedTypes().get(0);
+          internal_static_MumbleProto_VoiceTarget_Target_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_MumbleProto_VoiceTarget_Target_descriptor,
+              new java.lang.String[] { "Session", "ChannelId", "Group", "Links", "Children", },
+              net.sf.mumble.MumbleProto.VoiceTarget.Target.class,
+              net.sf.mumble.MumbleProto.VoiceTarget.Target.Builder.class);
+          internal_static_MumbleProto_PermissionQuery_descriptor =
+            getDescriptor().getMessageTypes().get(21);
+          internal_static_MumbleProto_PermissionQuery_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_MumbleProto_PermissionQuery_descriptor,
+              new java.lang.String[] { "ChannelId", "Permissions", "Flush", },
+              net.sf.mumble.MumbleProto.PermissionQuery.class,
+              net.sf.mumble.MumbleProto.PermissionQuery.Builder.class);
+          internal_static_MumbleProto_CodecVersion_descriptor =
+            getDescriptor().getMessageTypes().get(22);
+          internal_static_MumbleProto_CodecVersion_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_MumbleProto_CodecVersion_descriptor,
+              new java.lang.String[] { "Alpha", "Beta", "PreferAlpha", },
+              net.sf.mumble.MumbleProto.CodecVersion.class,
+              net.sf.mumble.MumbleProto.CodecVersion.Builder.class);
+          internal_static_MumbleProto_UserStats_descriptor =
+            getDescriptor().getMessageTypes().get(23);
+          internal_static_MumbleProto_UserStats_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_MumbleProto_UserStats_descriptor,
+              new java.lang.String[] { "Session", "StatsOnly", "Certificates", "FromClient", "FromServer", "UdpPackets", "TcpPackets", "UdpPingAvg", "UdpPingVar", "TcpPingAvg", "TcpPingVar", "Version", "CeltVersions", "Address", "Bandwidth", "Onlinesecs", "Idlesecs", "StrongCertificate", },
+              net.sf.mumble.MumbleProto.UserStats.class,
+              net.sf.mumble.MumbleProto.UserStats.Builder.class);
+          internal_static_MumbleProto_UserStats_Stats_descriptor =
+            internal_static_MumbleProto_UserStats_descriptor.getNestedTypes().get(0);
+          internal_static_MumbleProto_UserStats_Stats_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_MumbleProto_UserStats_Stats_descriptor,
+              new java.lang.String[] { "Good", "Late", "Lost", "Resync", },
+              net.sf.mumble.MumbleProto.UserStats.Stats.class,
+              net.sf.mumble.MumbleProto.UserStats.Stats.Builder.class);
+          internal_static_MumbleProto_RequestBlob_descriptor =
+            getDescriptor().getMessageTypes().get(24);
+          internal_static_MumbleProto_RequestBlob_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_MumbleProto_RequestBlob_descriptor,
+              new java.lang.String[] { "SessionTexture", "SessionComment", "ChannelDescription", },
+              net.sf.mumble.MumbleProto.RequestBlob.class,
+              net.sf.mumble.MumbleProto.RequestBlob.Builder.class);
+          return null;
+        }
+      };
+    com.google.protobuf.Descriptors.FileDescriptor
+      .internalBuildGeneratedFileFrom(descriptorData,
+        new com.google.protobuf.Descriptors.FileDescriptor[] {
+        }, assigner);
   }
   
   public static void internalForceInit() {}
